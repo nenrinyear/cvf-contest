@@ -46,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     creator: '@cvforner',
     images: {
-      url: url + '/ogp.webp',
+      url: url + '/ogp-twitter.webp',
       alt: 'CVF - 映像創作コンテスト',
     },
   },
