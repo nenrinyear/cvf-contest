@@ -1,5 +1,6 @@
 import './globals.css';
 
+const url = process.env.NEXT_PUBLIC_HOST_URL;
 /**
  * @type {next.Metadata}
  */
@@ -21,7 +22,7 @@ export const metadata = {
       { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#5bbad5', },
     ]
   },
-  manifest: '/manifest.json',
+  manifest: url + '/manifest.json',
   openGraph: {
     title: {
       default: 'CVF - 映像創作コンテスト',
@@ -29,12 +30,12 @@ export const metadata = {
     },
     description: 'CVFは、作り上げた映像を評価してもらえるコンテストです。',
     type: 'website',
-    url: 'https://cvf.vercel.app/',
+    url: url,
     site_name: 'CVF - 映像創作コンテスト',
     locale: 'ja_JP',
     images: [
       {
-        url: '/ogp.webp',
+        url: url + '/ogp.webp',
         alt: 'CVF - 映像創作コンテスト',
       },
     ],
@@ -45,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     creator: '@cvforner',
     images: {
-      url: '/ogp.webp',
+      url: url + '/ogp.webp',
       alt: 'CVF - 映像創作コンテスト',
     },
   },
