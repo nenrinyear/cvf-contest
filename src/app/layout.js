@@ -1,5 +1,8 @@
 import './globals.css';
 
+/**
+ * @type {next.Metadata}
+ */
 export const metadata = {
   title: {
     default: 'CVF - 映像創作コンテスト',
@@ -18,7 +21,7 @@ export const metadata = {
       { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#5bbad5', },
     ]
   },
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.json',
   openGraph: {
     title: {
       default: 'CVF - 映像創作コンテスト',
