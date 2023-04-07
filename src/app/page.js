@@ -1,11 +1,18 @@
 "use client";
-import { Jost } from 'next/font/google';
+import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 import { useEffect } from 'react';
 
 const jost = Jost({
     subsets: ['latin'],
     style: ['normal', 'italic'],
     weights: [200, 500],
+    display: 'swap',
+})
+
+const zen_maru_gothic = Zen_Maru_Gothic({
+    subsets: ['latin'],
+    style: ['normal'],
+    weight: "500",
     display: 'swap',
 })
 
@@ -16,21 +23,21 @@ export default function Home() {
             .catch((error) => {
                 const image = new Image();
                 image.src = '/CVF_static_icon.webp';
-                image.className = 'sm:w-1/4 w-full rounded-full';
+                image.className = 'sm:tw-w-1/4 tw-w-full tw-rounded-full';
                 video.insertAdjacentHTML('afterend', image.outerHTML);
                 video.remove();
             });
     }, []);
     return (
-        <div className="top">
-            <header className='w-screen h-screen bg-black'>
-                <div className="w-full sm:h-full h-2/3 flex justify-center items-center">
-                    <video muted loop className="sm:w-1/4 w-full rounded-full" id='logo-mp4' >
+        <div className={`top ${zen_maru_gothic.className}`}>
+            <header className='tw-w-screen tw-h-screen tw-bg-black'>
+                <div className="tw-w-full sm:tw-h-full tw-h-2/3 tw-flex tw-justify-center tw-items-center">
+                    <video muted loop className="sm:tw-w-1/4 tw-w-full tw-rounded-full" id='logo-mp4' >
                         <source src="/CVF_motion.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className="absolute bottom-0 left-0 mt-0 mr-0 sm:mb-12 mb-8 sm:ml-12 ml-8 bg-transparent">
-                    <p className={`text-white font-extralight italic text-8xl select-none pt-2 pb-2 pr-0 pl-0 ${jost.className}`}>
+                <div className="tw-absolute tw-bottom-0 tw-left-0 tw-mt-0 tw-mr-0 sm:tw-mb-12 tw-mb-8 sm:tw-ml-12 tw-ml-8 tw-bg-transparent">
+                    <p className={`tw-text-white tw-font-extralight tw-italic tw-text-8xl tw-select-none tw-pt-2 tw-pb-2 tw-pr-0 tw-pl-0 ${jost.className}`}>
                         CVF
                     </p>
                 </div>

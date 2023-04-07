@@ -53,16 +53,10 @@ export const metadata = {
   },
 }
 
-const zen_maru_gothic = Zen_Maru_Gothic({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: "500",
-  display: 'swap',
-})
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ja" className={`${zen_maru_gothic.className}`}>
+    <html lang="ja">
       <body>{children}</body>
     </html>
   )
