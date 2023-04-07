@@ -1,4 +1,5 @@
 import './globals.css';
+import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
 const url = process.env.NEXT_PUBLIC_HOST_URL;
 /**
@@ -52,9 +53,16 @@ export const metadata = {
   },
 }
 
+const zen_maru_gothic = Zen_Maru_Gothic({
+  subsets: ['latin'],
+  style: ['normal'],
+  weight: "500",
+  display: 'swap',
+})
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={`${zen_maru_gothic.className}`}>
       <body>{children}</body>
     </html>
   )
