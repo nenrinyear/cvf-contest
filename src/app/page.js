@@ -43,7 +43,7 @@ export default function Home() {
                         <source src="/CVF_motion.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className="tw-absolute tw-bottom-0 tw-left-0 tw-mt-0 tw-mr-0 sm:tw-mb-12 tw-mb-8 sm:tw-ml-12 tw-ml-8 tw-bg-transparent">
+                <div className="tw-absolute tw-bottom-0 tw-left-0 tw-mt-0 tw-mr-0 sm:tw-mb-12 tw-mb-32 sm:tw-ml-12 tw-ml-6 tw-bg-transparent">
                     <p className={`tw-text-white tw-font-extralight tw-italic tw-text-3xl tw-select-none tw-ml-2 ${jost.className}`}>
                         Next to the Stage.
                     </p>
