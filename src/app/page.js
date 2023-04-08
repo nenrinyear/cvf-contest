@@ -1,6 +1,10 @@
 "use client";
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
+
+import CanvasAnimation from './canvas-animation';
+
+import styles from './page.module.css';
 
 const jost = Jost({
     subsets: ['latin'],
@@ -29,9 +33,12 @@ export default function Home() {
             });
     }, []);
     return (
-        <div className={`top ${zen_maru_gothic.className}`}>
-            <header className='tw-w-screen tw-h-screen tw-bg-black'>
-                <div className="tw-w-full sm:tw-h-full tw-h-2/3 tw-flex tw-justify-center tw-items-center">
+        <div className={`${styles.top} ${zen_maru_gothic.className}`}>
+            <header className='tw-w-full tw-h-screen tw-relative -tw-z-50 tw-bg-black'>
+                <div className='tw-absolute tw-w-full tw-h-full -tw-z-40 tw-select-none'>
+                    <CanvasAnimation className='tw-w-full tw-h-full tw-object-cover tw-object-center' />
+                </div>
+                <div className="tw-w-full sm:tw-h-full tw-h-2/3 tw-flex tw-z-10 tw-justify-center tw-items-center">
                     <video muted loop className="sm:tw-w-1/4 tw-w-full tw-rounded-full" id='logo-mp4' >
                         <source src="/CVF_motion.mp4" type="video/mp4" />
                     </video>
@@ -43,7 +50,7 @@ export default function Home() {
                 </div>
             </header>
             <main>
-                <div className="h-screen">aaaaaaaaaaaaaa</div>
+                <div className="tw-h-screen">aaaaaaaaaaaaaa</div>
             </main>
         </div>
     )

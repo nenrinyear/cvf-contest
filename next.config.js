@@ -1,4 +1,4 @@
-const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin')
+//const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,6 +6,7 @@ const nextConfig = {
     appDir: true,
   },
   optimizeFonts: true,
+  /*
   webpack: (
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
@@ -16,7 +17,8 @@ const nextConfig = {
       log: true,
     }))
     return config
-  }
+  },*/
+  output: "export",
 }
 
 module.exports = nextConfig
