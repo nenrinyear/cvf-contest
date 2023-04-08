@@ -27,7 +27,7 @@ export default function Home() {
             .catch((error) => {
                 const image = new Image();
                 image.src = '/CVF_static_icon.webp';
-                image.className = 'sm:tw-w-1/4 tw-w-full tw-rounded-full';
+                image.className = 'sm:tw-w-1/4 tw-w-1/2 tw-rounded-full';
                 video.insertAdjacentHTML('afterend', image.outerHTML);
                 video.remove();
             });
