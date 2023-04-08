@@ -11,6 +11,11 @@ export const metadata = {
     template: '%s | CVF',
   },
   description: 'CVFは、作り上げた映像を評価してもらえるコンテストです。',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    viewportFit: 'cover',
+  },
   icons: {
     icon: [
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png', },
