@@ -39,7 +39,7 @@ export default function Home() {
                     <CanvasAnimation className='tw-w-full tw-object-cover tw-object-center' />
                 </div>
                 <div className="tw-w-full sm:tw-h-full tw-h-2/3 tw-flex tw-z-10 tw-justify-center tw-items-center">
-                    <video muted loop className="sm:tw-w-1/4 tw-w-full tw-rounded-full" id='logo-mp4' >
+                    <video muted loop className="sm:tw-w-1/4 tw-w-1/2 tw-rounded-full" id='logo-mp4' >
                         <source src="/CVF_motion.mp4" type="video/mp4" />
                     </video>
                 </div>
