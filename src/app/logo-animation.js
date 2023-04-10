@@ -15,7 +15,7 @@ export default function LogoMovieAnimation({ className }) {
             });
     }, []);
     return (
-        <video muted loop className={className} id='logo-mp4' >
+        <video muted loop playsInline poster='/CVF_static_icon.webp' className={className} id='logo-mp4' >
             <source src="/CVF_motion.mp4" type="video/mp4" />
         </video>
     )
