@@ -10,10 +10,12 @@
     justify-content: space-between;
     align-items: center;
     transform: translateY(70px);
+    -webkit-transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
     transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 .nav_top_Fixed {
     transform: translateY(0);
+    -webkit-transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
     transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 
