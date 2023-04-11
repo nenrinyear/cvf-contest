@@ -1,7 +1,10 @@
+"use server";
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
-import CanvasAnimation from './canvas-animation';
-import LogoMovieAnimation from './logo-animation';
+import CanvasAnimation from '../canvas-animation';
+import LogoMovieAnimation from '../logo-animation';
+
+import NavCompornent from '../nav';
 
 import styles from './page.module.css';
 
@@ -43,6 +46,7 @@ export default function Home() {
                     
                 </div>
             </header>
+            <NavCompornent />
             <main>
                 <div className="tw-h-screen">aaaaaaaaaaaaaa</div>
             </main>

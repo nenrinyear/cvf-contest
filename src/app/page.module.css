@@ -102,11 +102,13 @@
     overflow: hidden;
     padding: .5rem;
     mix-blend-mode: difference;
-    //backdrop-filter: blur(16px);
     transform: rotate(-90deg);
     transform-origin: left;
 }
 @media (max-width: 640px) {
+    .header_scroll_down_top {
+        opacity: 0!important;
+    }
     .header_scroll_down_top {
         bottom: calc(7rem + 6px);
         right: -100px;
@@ -118,17 +120,17 @@
     font-size: 16px;
     font-weight: 300;
     color: #fff;
-    animation: scroll_down_arrow 4s infinite;
+    animation: scroll_down_arrow 3s infinite;
 }
 @keyframes scroll_down_arrow {
     0% {
-        opacity: 0;
+        opacity: 0.5;
     }
     50% {
         opacity: 1;
     }
     100% {
-        opacity: 0;
+        opacity: 0.5;
     }
 }
 
@@ -140,9 +142,6 @@
     font-weight: 300;
 }
 @media (max-width: 640px) {
-    .header_scroll_down_top {
-        opacity: 0;
-    }
     .header_scroll_down_text {
         font-size: 20px;
         font-weight: 200;
