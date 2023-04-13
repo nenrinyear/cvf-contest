@@ -3,7 +3,7 @@ import Image from 'next/image';
 import navStyles from './nav.module.css';
 
 import { Jost } from 'next/font/google';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const jost = Jost({
@@ -14,6 +14,10 @@ const jost = Jost({
 })
 
 export default function NavCompornent() {
+    const [navMenuOpen, setNavMenuOpen] = useState(false);
+    const navMenuOpenToggle = () => {
+        setNavMenuOpen(!navMenuOpen);
+    };
     useEffect(() => {
         const navShow = () => {
             const nav = document.getElementById('nav');
@@ -52,6 +56,24 @@ export default function NavCompornent() {
                     <a href="#" className={navStyles.nav_link}>Contact</a>
                 </li>
             </ul>
+            <div className={`${navStyles.nav_humbger} ${navMenuOpen? navStyles.nav_humbger_Open : ''}`} onClick={navMenuOpenToggle}>
+                <div className={navStyles.nav_humbger_line}></div>
+                <div className={navStyles.nav_humbger_line}></div>
+                <div className={navStyles.nav_humbger_line}></div>
+            </div>
+            <div className={`${navStyles.nav_menu} ${navMenuOpen ? navStyles.nav_menu_Open : ''}`}>
+                <ul className={navStyles.nav_menu_list}>
+                    <li className={navStyles.nav_menu_item}>
+                        <Link href="/" className={navStyles.nav_menu_link}>Home</Link>
+                    </li>
+                    <li className={navStyles.nav_menu_item}>
+                        <Link href="/about" className={navStyles.nav_menu_link}>About</Link>
+                    </li>
+                    <li className={navStyles.nav_menu_item}>
+                        <Link href="/contact" className={navStyles.nav_menu_link}>Contact</Link>
+                    </li>
+                </ul>
+            </div>
         </nav>
     )
 }
