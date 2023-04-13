@@ -26,15 +26,15 @@
 }
 
 .nav_top > .nav_logo > .nav_logo_image {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: #000;
     margin-right: 10px;
 }
 
 .nav_top > .nav_logo > .nav_logo_text {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 400;
     font-style: italic;
     color: #000;
@@ -62,7 +62,7 @@
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    padding: 10px;
+    padding: 0 10px;
     color: #000;
     font-size: 1.2rem;
     font-weight: 400;
@@ -76,20 +76,20 @@
         left: 0;
         right: 0;
         bottom: auto;
-        height: 68px;
+        height: 56px;
         transform: translateY(-70px);
         -webkit-transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
         transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
     }
 
     .nav_top > .nav_logo > .nav_logo_image {
-        width: 32px;
-        height: 32px;
+        width: 26px;
+        height: 26px;
         border-radius: 50%;
     }
     .nav_top > .nav_logo > .nav_logo_text {
-        font-size: 1.6rem;
-        font-weight: 400;
+        font-size: 1.5rem;
+        font-weight: 500;
         font-style: italic;
     }
     
@@ -118,7 +118,7 @@
     height: 2px;
     background: #000;
     margin: 4px 0;
-    transition: opacity 0.3s cubic-bezier(0, 0, 0, 1);
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.5, 0);
 }
 .nav_humbger > .nav_humbger_line:last-child {
     width: 100%;
@@ -133,7 +133,7 @@
     height: 2px;
     background: #000;
     margin-bottom: 4px;
-    transform: rotate(45deg) translate(4px, 5px);
+    transform: rotate(45deg) translate(3.5px, 5px);
     transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 .nav_humbger.nav_humbger_Open > .nav_humbger_line:nth-child(2) {
@@ -149,15 +149,15 @@
     height: 2px;
     background: #000;
     margin-bottom: 4px;
-    transform: rotate(-45deg) translate(4px, -5px);
+    transform: rotate(-45deg) translate(3.5px, -5px);
     transition: transform 0.3s cubic-bezier(0, 0, 0, 1);
 }
 
 .nav_menu {
     position: absolute;
     width: 100vw;
-    height: calc(100vh - 68px);
-    top: 68px;
+    height: calc(100vh - 56px);
+    top: 56px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -179,6 +179,7 @@
 }
 .nav_menu > .nav_menu_list > .nav_menu_item {
     margin: 0 1rem;
+    width: 100%;
 }
 .nav_menu > .nav_menu_list > .nav_menu_item > .nav_menu_link {
     display: flex;

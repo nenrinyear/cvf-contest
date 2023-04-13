@@ -16,6 +16,7 @@ const jost = Jost({
 export default function NavCompornent() {
     const [navMenuOpen, setNavMenuOpen] = useState(false);
     const navMenuOpenToggle = () => {
+        console.log(!navMenuOpen);
         setNavMenuOpen(!navMenuOpen);
     };
     useEffect(() => {
@@ -47,13 +48,13 @@ export default function NavCompornent() {
             </Link>
             <ul className={navStyles.nav_list}>
                 <li className={navStyles.nav_item}>
-                    <a href="#" className={navStyles.nav_link}>Home</a>
+                    <Link href="/" className={navStyles.nav_link}>Home</Link>
                 </li>
                 <li className={navStyles.nav_item}>
-                    <a href="#" className={navStyles.nav_link}>About</a>
+                    <Link href="/about" className={navStyles.nav_link}>About</Link>
                 </li>
                 <li className={navStyles.nav_item}>
-                    <a href="#" className={navStyles.nav_link}>Contact</a>
+                    <Link href="/contact" className={navStyles.nav_link}>Contact</Link>
                 </li>
             </ul>
             <div className={`${navStyles.nav_humbger} ${navMenuOpen? navStyles.nav_humbger_Open : ''}`} onClick={navMenuOpenToggle}>
