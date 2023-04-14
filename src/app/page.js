@@ -1,10 +1,10 @@
 "use server";
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
-import CanvasAnimation from '../canvas-animation';
-import LogoMovieAnimation from '../logo-animation';
+import CanvasAnimation from '../CanvasAnimation';
+import LogoMovieAnimation from '../LogoAnimation';
 
-import NavCompornent from '../nav';
+import NavCompornent from '../Nav';
 
 import styles from './page.module.css';
 

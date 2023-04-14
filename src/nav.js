@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import navStyles from './nav.module.css';
+import navStyles from './Nav.module.css';
 
 import { Jost } from 'next/font/google';
 import { useEffect, useState } from 'react';
@@ -31,8 +31,8 @@ export default function NavCompornent() {
                 }
             }
         };
-        window.addEventListener('scroll', navShow);
         navShow();
+        window.addEventListener('scroll', navShow);
         return () => window.removeEventListener('scroll', navShow);
     }, [navMenuOpen,]);
     return (
