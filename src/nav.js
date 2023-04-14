@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import navStyles from './Nav.module.css';
+import navStyles from './nav.module.css';
 
 import { Jost } from 'next/font/google';
 import { useEffect, useState } from 'react';
@@ -36,7 +36,7 @@ export default function NavCompornent() {
         return () => window.removeEventListener('scroll', navShow);
     }, [navMenuOpen,]);
     return (
-        <header>
+        <header className={navStyles.nav}>
             <nav className={`${navStyles.nav_top} ${jost.className}`} id='nav'>
                 <Link
                     className={navStyles.nav_logo}

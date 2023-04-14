@@ -4,7 +4,7 @@ import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 import CanvasAnimation from '../CanvasAnimation';
 import LogoMovieAnimation from '../LogoAnimation';
 
-import NavCompornent from '../Nav';
+import NavCompornent from '../nav';
 
 import styles from './page.module.css';
 

@@ -1,3 +1,6 @@
+.nav {
+    display: block;
+}
 .nav_top {
     position: fixed;
     bottom: 0;
