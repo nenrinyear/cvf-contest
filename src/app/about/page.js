@@ -1,10 +1,6 @@
-"use server";
+import NavCompornent from "../../nav"
+
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
-
-import NavCompornent from '../nav';
-
-import Header from './Header';
-import About from './About';
 
 import styles from './page.module.css';
 
@@ -14,7 +10,6 @@ const jost = Jost({
     weights: [200, 300, 500],
     display: 'swap',
 })
-
 const zen_maru_gothic = Zen_Maru_Gothic({
     subsets: ['latin'],
     style: ['normal'],
@@ -22,14 +17,12 @@ const zen_maru_gothic = Zen_Maru_Gothic({
     display: 'swap',
 })
 
-
 export default function Home() {
     return (
         <div className={`${styles.top} ${zen_maru_gothic.className}`}>
             <NavCompornent />
-            <Header />
             <main className={styles.main}>
-                <About />
+                aaaa
             </main>
         </div>
     )

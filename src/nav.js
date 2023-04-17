@@ -47,6 +47,10 @@ const Links = [
         href: '/',
         text: 'Home',
     },
+    {
+        href: '/about',
+        text: 'About',
+    }
 ];
 
 export default function NavCompornent() {
