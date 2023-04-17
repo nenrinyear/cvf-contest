@@ -8,6 +8,7 @@ export default function CanvasAnimation({className }) {
     return (
         <>
             <Lottie 
+                className={className}
                 animationData={CVF_motion}
                 loop={true}
                 autoplay={true}

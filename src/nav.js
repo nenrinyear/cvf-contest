@@ -47,25 +47,25 @@ const Links = [
         href: '/',
         text: 'Home',
     },
-    {
-        href: '/about',
-        text: 'About',
-    },
-    {
-        href: '/contact',
-        text: 'Contact',
-    },
-    {
-        href: 'https://mouri.work',
-        text: 'M0UR1 Works',
-    }
 ];
 
 export default function NavCompornent() {
     const [navMenuOpen, setNavMenuOpen] = useState(false);
     const navMenuOpenToggle = () => {
         console.log(!navMenuOpen);
-        setNavMenuOpen(!navMenuOpen);
+        const nav = document.getElementById('nav_bg');
+        if (navMenuOpen) {
+            setTimeout(() => {
+                nav.style.display = 'none';
+            }, 300);
+        } else {
+            nav.style.display = 'block';
+            nav.style.opacity = '0';
+        }
+        setTimeout(() => {
+            nav.style.opacity = null;
+            setNavMenuOpen(!navMenuOpen)
+        }, 100);
     };
     useEffect(() => {
         const navShow = () => {
@@ -140,7 +140,7 @@ export default function NavCompornent() {
                         ))}
                     </ul>
                 </motion.div>
-                <div className={`${navStyles.nav_bg} ${navMenuOpen? navStyles.nav_bg_Open: undefined}`} />
+                <div className={`${navStyles.nav_bg} ${navMenuOpen ? navStyles.nav_bg_Open : ''}`} id="nav_bg" style={{display: 'none',}} />
             </nav>
         </header>
     )

@@ -53,34 +53,18 @@ export default function Home() {
         <div className={`${styles.top} ${zen_maru_gothic.className}`}>
             <NavCompornent />
             <Header />
-            <main>
-                <div className={styles.main}>
-                    <div className={styles.main_title}>
-                        <h1 className={`${styles.main_title_text} ${jost.className}`}>CVF</h1>
-                    </div>
-                    <div className={styles.main_content}>
-                        <p className={styles.main_content_text}>
-                            CVFは、
-                            <br />
-                            ファッションの世界における
-                            <br />
-                            デザイナー、モデル、ブランド、
-                            <br />
-                            エージェンシー、メディア、
-                            <br />
-                            ファッション関連の企業、
-                            <br />
-                            そしてファッションに関わる
-                            <br />
-                            すべての人々の
-                            <br />
-                            交流を促進するための
-                            <br />
-                            プラットフォームです。
-                        </p>
+            <main className={styles.main}>
+                <div className={styles.about}>
+                    <div className={styles.about_title}>
+                        <p className={`${styles.about_title_text} ${jost.className}`}>What&#12;is CVF?</p>
                     </div>
                 </div>
             </main>
         </div>
     )
+}
+export const getStaticProps = async () => {
+    return {
+        props: {}
+    }
 }
