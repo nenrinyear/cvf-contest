@@ -18,7 +18,7 @@
 }
 
 .Title {
-    width: 100%;
+    width: calc(50% - 50px);
     height: fit-content;
     position: relative;
     z-index: 0;
@@ -74,7 +74,7 @@
 }
 
 .About {
-    width: 80%;
+    width: calc(50% - 50px);
     position: relative;
     z-index: 0;
     margin-right: 0;
