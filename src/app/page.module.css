@@ -10,5 +10,7 @@
     width: 100%;
     position: relative;
     z-index: 0;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
