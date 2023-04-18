@@ -1,5 +1,3 @@
-import NavCompornent from "../../nav"
-
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
 import styles from './page.module.css';
@@ -20,7 +18,6 @@ const zen_maru_gothic = Zen_Maru_Gothic({
 export default function Home() {
     return (
         <div className={`${styles.top} ${zen_maru_gothic.className}`}>
-            <NavCompornent />
             <main className={styles.main}>
                 aaaa
             </main>

@@ -1,5 +1,9 @@
+import NavCompornent from '@/nav';
+import PageTransition from '@/PageTransition';
+
 import './globals.css';
-import { Jost, Zen_Maru_Gothic } from 'next/font/google';
+
+import { motion } from 'framer-motion';
 
 const url = process.env.NEXT_PUBLIC_HOST_URL;
 /**
@@ -62,7 +66,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <NavCompornent />
+        <PageTransition>
+          {children}
+        </PageTransition>
+      </body>
     </html>
   )
 }

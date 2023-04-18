@@ -1,8 +1,6 @@
 "use server";
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
-import NavCompornent from '../nav';
-
 import Header from './Header';
 import About from './About';
 
@@ -26,7 +24,6 @@ const zen_maru_gothic = Zen_Maru_Gothic({
 export default function Home() {
     return (
         <div className={`${styles.top} ${zen_maru_gothic.className}`}>
-            <NavCompornent />
             <Header />
             <main className={styles.main}>
                 <About />
