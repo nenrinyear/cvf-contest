@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './About.module.css';
 
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
@@ -31,9 +32,11 @@ export default function About() {
                 </p>
                 <div className={styles.GoToAboutPage}>
                     <p className={`${styles.GoToAboutPage_text} ${jost.className}`}>
-                        <a href="/about" className={styles.GoToAboutPage_text_link}>
+                        <Link
+                            href="/about"
+                            className={styles.GoToAboutPage_text_link}>
                             CVFについてもっと知る
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>
