@@ -1,4 +1,3 @@
-"use client";
 import NavCompornent from '@/nav';
 import './globals.css';
 
@@ -61,6 +60,7 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+    "use client";
     return (
         <html lang="ja">
             <body>
