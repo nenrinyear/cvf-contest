@@ -1,9 +1,6 @@
+"use client";
 import NavCompornent from '@/nav';
-import PageTransition from '@/PageTransition';
-
 import './globals.css';
-
-import { motion } from 'framer-motion';
 
 const url = process.env.NEXT_PUBLIC_HOST_URL;
 /**
@@ -64,14 +61,12 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="ja">
-      <body>
-        <NavCompornent />
-        <PageTransition>
-          {children}
-        </PageTransition>
-      </body>
-    </html>
-  )
+    return (
+        <html lang="ja">
+            <body>
+                <NavCompornent />
+                {children}
+            </body>
+        </html>
+    )
 }

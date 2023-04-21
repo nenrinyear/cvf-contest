@@ -137,6 +137,7 @@ export default function NavCompornent() {
                                 <Link
                                     href={link.href}
                                     className={navStyles.nav_menu_link}
+                                    onClick={navMenuOpenToggle}
                                 >
                                     {link.text}
                                 </Link>

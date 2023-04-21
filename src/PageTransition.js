@@ -6,8 +6,8 @@ export default function PageTransition({ children }) {
         <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 20, opacity: 0 }}
             transition={{
+                delay: 0.1,
                 type: 'spring',
                 stiffness: 100,
                 damping: 20,

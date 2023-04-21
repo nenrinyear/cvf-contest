@@ -5,6 +5,8 @@ import Header from './Header';
 import About from './About';
 
 import styles from './page.module.css';
+import PageTransition from '@/PageTransition';
+import Schedule from './Schedule';
 
 const jost = Jost({
     subsets: ['latin'],
@@ -23,11 +25,14 @@ const zen_maru_gothic = Zen_Maru_Gothic({
 
 export default function Home() {
     return (
-        <div className={`${styles.top} ${zen_maru_gothic.className}`}>
-            <Header />
-            <main className={styles.main}>
-                <About />
-            </main>
-        </div>
+        <PageTransition>
+            <div className={`${styles.top} ${zen_maru_gothic.className}`}>
+                <Header />
+                <main className={styles.main}>
+                    <About />
+                    <Schedule />
+                </main>
+            </div>
+        </PageTransition>
     )
 }
