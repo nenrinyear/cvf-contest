@@ -1,0 +1,147 @@
+.Footer {
+    width: 100%;
+    background-color: #e6e6e6;
+    font-size: 12px;
+    color: #000;
+    margin-top: 5rem;
+    padding: 2rem 50px 6rem 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.info {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: center;
+}
+.Footer_navs {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.Footer_nav {
+    width: fit-content;
+    box-sizing: border-box;
+    padding-left: 2rem;
+}
+.nav_Primary {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.nav_Primary a {
+    color: #000;
+    text-decoration: none;
+}
+.nav_Primary a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+.nav_Secondary {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+.nav_Secondary a {
+    color: #000;
+    text-decoration: none;
+}
+.nav_Secondary a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+.CVF {
+    width: 50%;
+}
+.CVF_copy {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: .75rem;
+    font-weight: 300;
+    text-decoration: none;
+    user-select: none;
+}
+.CVF_name {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 300;
+    text-decoration: none;
+    font-style: italic;
+    user-select: none;
+}
+
+.Links {
+    width: 50%;
+    padding: 0 .5rem;
+}
+.PageTop {
+    width: 100%;
+    min-width: 106px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+    user-select: none;
+}
+.PageTop:hover {
+    cursor: pointer;
+}
+
+.SNS {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: .5rem;
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+    user-select: none;
+}
+.SNS .Icon {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.25rem;
+}
+
+@media (max-width: 800px) {
+    .Footer {
+        display: block;
+    }
+    .info {
+        width: 100%;
+        margin: 0;
+    }
+    .Footer_navs {
+        width: 100%;
+        margin: 2rem 0 0 0;
+    }
+    .Footer_nav {
+        width: calc(100% / 2);
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+    .CVF {
+        width: 50%;
+    }
+    .Links {
+        width: 50%;
+    }
+}
+
+.navs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}

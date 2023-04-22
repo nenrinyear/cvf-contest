@@ -7,6 +7,7 @@ import About from './About';
 import styles from './page.module.css';
 import PageTransition from '@/PageTransition';
 import Schedule from './Schedule';
+import Footer from '@/Footer';
 
 const jost = Jost({
     subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function Home() {
                     <About />
                     <Schedule />
                 </main>
+                <Footer />
             </div>
         </PageTransition>
     )

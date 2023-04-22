@@ -24,7 +24,7 @@ const TimelineData = [
         "date": "2023/4/29",
         "content": [
             {
-                "type": "text",
+                "type": "p",
                 "content": "サイトを公開しました",
             },
         ],
@@ -36,7 +36,7 @@ const TimelineData = [
         "content": [
             {
                 "type": "link",
-                "href": "/register",
+                "href": "/dash/register",
                 "content": "こちら",
             },
             {
@@ -52,7 +52,7 @@ const TimelineData = [
         "content": [
             {
                 "type": "link",
-                "href": "/submit",
+                "href": "/dash/submit",
                 "content": "こちら",
             },
             {
@@ -67,11 +67,11 @@ const TimelineData = [
         "date": "2023/6/30",
         "content": [
             {
-                "type": "text",
+                "type": "p",
                 "content": "投稿受付を終了します。",
             },
             {
-                "type": "text",
+                "type": "p",
                 "content": "以降の投稿は受け付けませんのでご注意ください。",
             },
         ],
@@ -82,15 +82,15 @@ const TimelineData = [
         "date": "2023/7/16",
         "content": [
             {
-                "type": "text",
+                "type": "p",
                 "content": "審査結果をYouTubeプレミア公開にて発表します。",
             },
             {
-                "type": "text",
+                "type": "p",
                 "content": "動画へのリンクは後日公開します。",
             },
             {
-                "type": "text",
+                "type": "p",
                 "content": "また、当サイトでも発表します。",
             },
         ],
@@ -99,7 +99,7 @@ const TimelineData = [
 
 export default function Schedule() {
     return (
-        <div className={styles.top}>
+        <div className={styles.top} id='schedule'>
             <div className={styles.Layout}>
                 <div className={styles.Title}>
                     <p className={`${styles.Title_text} ${jost.className}`}>
@@ -121,9 +121,13 @@ export default function Schedule() {
                                     <div className={`${styles.Timeline_Section_Title}`}>{`${data.title}`}</div>
                                     <div className={`${styles.Timeline_Section_Content}`}>
                                         {data.content.map((content) => {
-                                            if (content.type === "text") {
+                                            if (content.type === "p") {
                                                 return (
                                                     <p key={`${content.content}`}>{`${content.content}`}</p>
+                                                )
+                                            } else if (content.type === "text") {
+                                                return (
+                                                    <span key={`${content.content}`}>{`${content.content}`}</span>
                                                 )
                                             } else if (content.type === "link") {
                                                 return (
