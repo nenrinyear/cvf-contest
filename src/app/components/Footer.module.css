@@ -4,7 +4,7 @@
     font-size: 12px;
     color: #000;
     margin-top: 5rem;
-    padding: 2rem 50px 6rem 50px;
+    padding: 8rem 50px 6rem 50px;
     display: flex;
     justify-content: center;
 }
@@ -23,6 +23,7 @@
 .Footer_nav {
     width: fit-content;
     box-sizing: border-box;
+    margin-top: .25rem;
     padding-left: 2rem;
 }
 .nav_Primary {
@@ -136,12 +137,4 @@
     .Links {
         width: 50%;
     }
-}
-
-.navs {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
 }

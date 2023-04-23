@@ -17,7 +17,7 @@ const zen_maru_gothic_400 = Zen_Maru_Gothic({
 
 export default function About() {
     return (
-        <div className={styles.top}>
+        <div className={styles.top} id='about'>
             <div className={styles.Layout}>
                 <div className={styles.Title}>
                     <p className={`${styles.Title_text} ${jost.className}`}>

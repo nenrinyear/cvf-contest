@@ -105,7 +105,7 @@ export default function Schedule() {
                     <p className={`${styles.Title_text} ${jost.className}`}>
                         Schedule
                         <span className={`${styles.Title_text_ja}`}>
-                            投稿から審査の流れ
+                            参加から審査の流れ
                         </span>
                     </p>
                 </div>
@@ -115,8 +115,11 @@ export default function Schedule() {
                             return (
                                 <section className={`${styles.Timeline_Section}`} key={`${data.step}`}>
                                     <div className={`${styles.Timeline_Section_Num}`}>
-                                        
-                                        <time className={`${styles.Timeline_Section_Date}`} dateTime={`${data.date.replace(/\//g, '-')}`}>{`${data.date}`}</time>
+                                        <time
+                                            className={`${styles.Timeline_Section_Date}`}
+                                            dateTime={`${data.date.replace(/\//g, '-')}`}>
+                                            {`${data.date}`}
+                                        </time>
                                     </div>
                                     <div className={`${styles.Timeline_Section_Title}`}>{`${data.title}`}</div>
                                     <div className={`${styles.Timeline_Section_Content}`}>

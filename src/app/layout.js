@@ -1,7 +1,11 @@
-import NavCompornent from '@/nav';
+import NavCompornent from './components/Navbar';
 import './globals.css';
 
 const url = process.env.NEXT_PUBLIC_HOST_URL;
+
+import { NextAuthProvider } from './components/SessionProvider';
+import { Analytics } from '@vercel/analytics/react';
+
 /**
  * @type {next.Metadata}
  */
@@ -64,8 +68,11 @@ export default function RootLayout({ children }) {
     return (
         <html lang="ja">
             <body>
-                <NavCompornent />
-                {children}
+                <NextAuthProvider>
+                    <NavCompornent />
+                        {children}
+                    <Analytics />
+                </NextAuthProvider>
             </body>
         </html>
     )

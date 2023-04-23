@@ -1,9 +1,9 @@
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
-import Header from '../Header';
+import Header from '../index_components/Header';
 
 import styles from './page.module.css';
-import PageTransition from '@/PageTransition';
+import PageTransition from '@/app/components/PageTransition';
 
 const jost = Jost({
     subsets: ['latin'],

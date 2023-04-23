@@ -1,5 +1,5 @@
-import CanvasAnimation from '../CanvasAnimation';
-import LogoMovieAnimation from '../LogoAnimation';
+import CanvasAnimation from '../components/CanvasAnimation';
+import LogoMovieAnimation from '../components/LogoAnimation';
 
 import styles from './Header.module.css';
 import { Jost } from 'next/font/google';
@@ -7,7 +7,7 @@ import { Jost } from 'next/font/google';
 const jost = Jost({
     subsets: ['latin'],
     style: ['normal', 'italic'],
-    weights: [200, 300, 500],
+    weights: [100, 200, 300, 500],
     display: 'swap',
 })
 
@@ -22,7 +22,8 @@ export default function Header() {
             </div>
             <div className={styles.header_title_top}>
                 <p className={`${styles.header_title_slogan} ${jost.className}`}>
-                    Next to the Stage.
+                    <span>未来へ羽ばたこう</span>
+                    <span>クリエイターたち</span>
                 </p>
                 <p className={`${styles.header_title_CVF} ${jost.className}`}>
                     CVF

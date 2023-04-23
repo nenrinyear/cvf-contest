@@ -62,9 +62,9 @@
 .header_title_slogan {
     margin-left: 0.5rem;
     color: #fff;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     line-height: 2.25rem;
-    font-weight: 200;
+    font-weight: 100;
     font-style: italic;
     white-space: nowrap;
     overflow: hidden;
@@ -82,6 +82,9 @@
 @media (max-width: 640px) {
     .header_title_top {
         margin: 0 0 8rem 1.5rem;
+    }
+    .header_title_slogan span:last-child {
+        display: none;
     }
 }
 
@@ -102,9 +105,11 @@
     transform-origin: left;
 }
 @media (max-width: 640px) {
+    /*
     .header_scroll_down_top {
         opacity: 0!important;
     }
+    */
     .header_scroll_down_top {
         bottom: calc(7rem + 6px);
         right: -100px;
