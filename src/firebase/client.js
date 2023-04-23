@@ -2,7 +2,7 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: process.env.CVF2023_Firebase_APIKey,
+    apiKey: process.env.NEXT_PUBLIC_CVF2023_Firebase_APIKey,
     authDomain: "creating-videos-festival.firebaseapp.com",
     projectId: "creating-videos-festival",
     storageBucket: "creating-videos-festival.appspot.com",
