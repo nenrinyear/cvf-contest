@@ -1,13 +1,13 @@
 "use server";
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
-import Header from './index_components/Header';
-import About from './index_components/About';
+import Header from './(components)/Header';
+import About from './(components)/About';
 
 import styles from './index_components/page.module.css';
-import PageTransition from './components/PageTransition';
-import Schedule from './index_components/Schedule';
-import Footer from './components/Footer';
+import PageTransition from '../../components/PageTransition';
+import Schedule from './(components)/Schedule';
+import Footer from '../../components/Footer';
 
 const jost = Jost({
     subsets: ['latin'],

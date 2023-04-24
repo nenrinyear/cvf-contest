@@ -51,11 +51,11 @@ const links = [
         inPageLink: [
             {
                 name: "第1回",
-                href: "/archive/1",
+                href: "/1",
             },
             {
                 name: "第2回",
-                href: "/archive/2",
+                href: "/2",
             },
         ],
     },

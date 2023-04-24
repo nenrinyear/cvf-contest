@@ -1,4 +1,4 @@
-import PageTransition from '@/app/components/PageTransition';
+import PageTransition from '@/components/PageTransition';
 import { Zen_Maru_Gothic } from 'next/font/google';
 
 const zen_maru_gothic_500 = Zen_Maru_Gothic({

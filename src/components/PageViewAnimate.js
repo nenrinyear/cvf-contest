@@ -1,0 +1,38 @@
+"use client";
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+
+const variants = {
+    hidden: {
+        opacity: 0, y: 100
+    },
+    animate: {
+        opacity: 1, y: 0
+    }
+}
+
+export default function PageViewAnimate({ children }) {
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+        threshold: 0.5,
+    });
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("animate");
+        }
+    }, [controls, inView]);
+
+    return (
+        <motion.div
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={variants}
+            transition={{ duration: 0.5 }}
+        >
+            {children}
+        </motion.div>
+    );
+}
