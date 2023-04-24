@@ -1,0 +1,55 @@
+.Top {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10rem 50px;
+    z-index: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+.Canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.Canvas_SVG {
+    position: relative;
+    z-index: 10;
+}
+
+.Text {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 20;
+    mix-blend-mode: difference;
+}
+
+.Title {
+    font-size: 3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.Description {
+    width: 100%;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: left;
+    margin-bottom: 2rem;
+}

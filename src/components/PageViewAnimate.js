@@ -15,7 +15,7 @@ const variants = {
 export default function PageViewAnimate({ children }) {
     const controls = useAnimation();
     const [ref, inView] = useInView({
-        threshold: 0.5,
+        threshold: 0.4,
     });
 
     useEffect(() => {
@@ -30,7 +30,10 @@ export default function PageViewAnimate({ children }) {
             initial="hidden"
             animate={controls}
             variants={variants}
-            transition={{ duration: 0.5 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut"
+            }}
         >
             {children}
         </motion.div>

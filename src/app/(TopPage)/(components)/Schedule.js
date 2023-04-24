@@ -104,9 +104,9 @@ export default function Schedule() {
             <div className={styles.top} id='schedule'>
                 <div className={styles.Layout}>
                     <div className={styles.Title}>
-                        <p className={`${styles.Title_text} ${jost.className}`}>
+                        <p className={`${styles.Title_text}`}>
                             Schedule
-                            <span className={`${styles.Title_text_ja}`}>
+                            <span className={`${styles.Title_text_ja} ${jost.className}`}>
                                 参加から審査の流れ
                             </span>
                         </p>

@@ -7,20 +7,16 @@
 
 .Layout {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    display: block;
     margin-bottom: 2rem;
 }
 
 .Title {
-    width: calc(50% - 50px);
+    width: 100%;
     height: fit-content;
     position: relative;
     z-index: 0;
-    display: flex;
-    justify-content: center;
+    display: block;
 }
 .Title_text {
     width: fit-content;
@@ -63,7 +59,6 @@
         justify-content: left;
     }
     .Title_text {
-        width: 100%;
         align-items: left;
         font-size: 2.5rem;
         flex-wrap: wrap;

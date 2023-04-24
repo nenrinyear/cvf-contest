@@ -22,28 +22,27 @@ export default function About() {
             <div className={styles.top} id='about'>
                 <div className={styles.Layout}>
                     <div className={styles.Title}>
-                        <p className={`${styles.Title_text} ${jost.className}`}>
+                        <p className={`${styles.Title_text}`}>
                             What&#x27;s CVF?
-                            <span className={`${styles.Title_text_ja}`}>
-                                CVFとは？
+                            <span className={`${styles.Title_text_ja} ${jost.className}`}>
+                                CVFって何？
                             </span>
                         </p>
                     </div>
                     <div className={styles.About}>
                         <p className={`${styles.About_text} ${zen_maru_gothic_400.className}`}>
-                            CVFは、音楽が大好きな人たちが集まって、音楽を共有するコミュニティです。
+                            CVFとは、オンラインで開催される、参加費無料の映像イベントです。
                             <br />
-                            このコミュニティでは、音楽を通して、人々がつながり、新しい発見をし、
                             <br />
-                            そして、それらを共有することができます。
+                            他のイベントにはあまり見かけない、<u>審査員による点数化とランキング付け、軽いアドバイスがある</u>ため、現在の自身の映像力を客観的に見ることができます。
                             <br />
-                            このコミュニティに参加することで、音楽を通して、
                             <br />
-                            人々がつながり、新しい発見をし、そして、それらを共有することができます。
+                            審査員は、毎回一般公募を行っています。
                             <br />
-                            このコミュニティに参加することで、音楽を通して、
+                            審査の透明性を高め、また、審査員へのヘイトを防ぐように様々なルール制定をしており、参加する側も審査員に応募する側も、安心して参加できます。
                             <br />
-                            人々がつながり、新しい発見をし、そして、それらを共有することができます。
+                            <br />
+                            初心者の方も大歓迎です！ぜひお気軽にご参加ください！！
                         </p>
                         <div className={styles.GoToAboutPage}>
                             <p className={`${styles.GoToAboutPage_text} ${jost.className}`}>

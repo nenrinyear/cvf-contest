@@ -1,0 +1,125 @@
+.Top {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    padding-top: 6rem;
+}
+
+.Layout {
+    width: 100%;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.Title {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    z-index: 0;
+    display: block;
+    margin-bottom: 1rem;
+}
+.Title_text {
+    width: fit-content;
+    font-size: 3rem;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+.Title_text_ja {
+    position: relative;
+    width: fit-content;
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    bottom: 0.5rem;
+    white-space: nowrap;
+    margin-left: auto;
+}
+.Title_text_ja::before {
+    display: inline-block;
+    background-color: #000;
+    width: 20px;
+    height: 1px;
+    content: "";
+}
+@media (max-width: 700px) {
+    .top {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+        min-height: 50vh;
+    }
+    .Title_text {
+        font-size: 2.5rem;
+    }
+    .Title_text_ja {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+
+.HowToJoin {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 2rem;
+}
+
+.HowToJoin_Step {
+    width: 30%;
+    background-color: #e6e6e6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+.HowToJoin_Step_Icon {
+    font-size: 4rem;
+    width: 80%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    user-select: none;
+}
+.HowToJoin_Step_Icon > svg {
+    border-radius: 20%;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1);
+}
+.HowToJoin_Step_text {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.HowToJoin_Step_text_link {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #2222bb;
+    text-decoration: underline;
+}
+@media (max-width: 700px) {
+    .HowToJoin_Step {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .HowToJoin_Step_Icon {
+        width: 30%;
+        font-size: 3rem;
+    }
+}
