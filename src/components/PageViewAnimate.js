@@ -19,7 +19,9 @@ export default function PageViewAnimate({ children }) {
     });
 
     useEffect(() => {
-        if (inView) {
+        if (navigator.userAgent.indexOf('iPhone') > -1 && navigator.userAgent.indexOf('CriOS') > -1) {
+            controls.start("animate");
+        }else if (inView) {
             controls.start("animate");
         }
     }, [controls, inView]);

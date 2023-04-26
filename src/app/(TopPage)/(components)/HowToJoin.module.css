@@ -82,7 +82,7 @@
     border-radius: 10px;
     padding: 1rem;
     box-sizing: border-box;
-    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 .HowToJoin_Step_Icon {
