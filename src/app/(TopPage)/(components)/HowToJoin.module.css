@@ -82,6 +82,7 @@
     border-radius: 10px;
     padding: 1rem;
     box-sizing: border-box;
+    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 .HowToJoin_Step_Icon {
@@ -96,8 +97,6 @@
 }
 .HowToJoin_Step_Icon > svg {
     border-radius: 20%;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 20px 4px rgba(0, 0, 0, 0.1);
 }
 .HowToJoin_Step_text {
     width: 100%;
