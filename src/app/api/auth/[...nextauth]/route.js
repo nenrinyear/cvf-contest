@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import DiscordProvider from 'next-auth/providers/discord';
 
 import { auth } from '@/firebase/admin';
 
@@ -18,6 +19,15 @@ export const authOptions = {
                     }
                 }
                 return null;
+            },
+        }),
+        DiscordProvider({
+            clientId: process.env.NEXT_PUBLIC_CVF2023_Discord_Client_ID,
+            clientSecret: process.env.CVF2023_Discord_Client_Secret,
+            authorization: {
+                params: {
+                    scope: 'identify email guilds.join',
+                },
             },
         }),
     ],

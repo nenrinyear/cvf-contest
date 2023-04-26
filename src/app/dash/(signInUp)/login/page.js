@@ -3,15 +3,24 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/client";
-import { signIn as signInByNextAuth } from "next-auth/react";
+import { signIn as signInByNextAuth, useSession } from "next-auth/react";
+
 
 export default function SingIn() {
+    const data = useSession();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const signIn = async () => {
-        if (!email) return;
-        if (!password) return;
+        if (!email) {
+            setError("メールアドレスを入力してください");
+            return;
+        }
+        if (!password) {
+            setError("パスワードを入力してください");
+            return;
+        }    
 
         try {
             const userCredential = await signInWithEmailAndPassword(
@@ -22,15 +31,30 @@ export default function SingIn() {
             const idToken = await userCredential.user.getIdToken();
             await signInByNextAuth("credentials", {
                 idToken,
-                callbackUrl: "/",
+                callbackUrl: "/dash",
             });
         } catch (e) {
+            if (e.code === "auth/user-not-found") {
+                setError("ユーザーが見つかりませんでした");
+                return;
+            } else if (e.code === "auth/wrong-password") {
+                setError("パスワードが間違っています");
+                return;
+            }
             console.error(e);
+            setError(e.message);
         }
+    };
+
+    const discordSignIn = async () => {
+        await signInByNextAuth("discord", {
+            callbackUrl: "/dash",
+        });
     };
 
     return (
         <div>
+            {error && <p>{error}</p>}
             <input
                 type="email"
                 value={email}
@@ -51,6 +75,17 @@ export default function SingIn() {
             >
                 ログイン
             </button>
+            <hr />
+
+            <button
+                type="button"
+                onClick={() => {
+                    discordSignIn();
+                }}
+            >
+                Discordでログイン
+            </button>
+
         </div>
     );
 };
