@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/client";
 import { signIn as signInByNextAuth, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 
 export default function SingIn() {
@@ -11,6 +12,11 @@ export default function SingIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+
+    if (data.status !== "unauthenticated") {
+        // redirect to /dash
+        redirect("/dash");
+    }
 
     const signIn = async () => {
         if (!email) {

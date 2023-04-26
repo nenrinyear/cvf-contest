@@ -1,10 +1,12 @@
 "use client";
 import Image from 'next/image';
-import navStyles from './nav.module.css';
+import navStyles from './Navbar.module.css';
 
 import { Jost } from 'next/font/google';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+
+import { useSession } from 'next-auth/react';
 
 import { motion } from 'framer-motion';
 
@@ -42,22 +44,39 @@ const jost = Jost({
     display: 'swap',
 })
 
-const Links = [
-    {
-        href: '/',
-        text: 'Home',
-    },
-    {
-        href: '/about',
-        text: 'About',
-    }
-];
 
 export default function NavCompornent() {
+    const { data: session, status } = useSession();
+    const Links = [
+        {
+            href: '/',
+            text: 'Home',
+        },
+        {
+            href: '/about',
+            text: 'About',
+        },
+    ];
+
+    if (status === "authenticated") {
+        Links.push({
+            href: '/dash',
+            text: 'MyPage',
+        });
+        Links.push({
+            href: '/api/auth/signout',
+            text: 'Logout',
+        });
+    } else {
+        Links.push({
+            href: '/dash/login',
+            text: 'Login',
+        });
+    }
     const [navMenuOpen, setNavMenuOpen] = useState(false);
     const navMenuOpenToggle = () => {
         console.log(!navMenuOpen);
-        const nav = document.getElementById('nav_bg');
+        const nav = document.getElementById('bg');
         if (navMenuOpen) {
             setTimeout(() => {
                 nav.style.display = 'none';
@@ -75,11 +94,11 @@ export default function NavCompornent() {
         const navShow = () => {
             const nav = document.getElementById('nav');
             if (window.scrollY > 0) {
-                nav.classList.add(navStyles.nav_top_Fixed);
+                nav.classList.add(navStyles.Top_Fixed);
             } else {
                 if (!navMenuOpen) {
                     console.log(navMenuOpen);
-                    nav.classList.remove(navStyles.nav_top_Fixed);
+                    nav.classList.remove(navStyles.Top_Fixed);
                 }
             }
         };
@@ -89,10 +108,10 @@ export default function NavCompornent() {
     }, [navMenuOpen,]);
     const containerRef = useRef(null);
     return (
-        <header className={navStyles.nav}>
-            <nav className={`${navStyles.nav_top} ${jost.className}`} id='nav'>
+        <header className={navStyles.Nav}>
+            <nav className={`${navStyles.Top} ${jost.className}`} id='nav'>
                 <Link
-                    className={navStyles.nav_logo}
+                    className={navStyles.Logo}
                     href="/"
                     >
                     <Image
@@ -100,43 +119,43 @@ export default function NavCompornent() {
                         alt="CVF"
                         width={50}
                         height={50}
-                        className={navStyles.nav_logo_image}
+                        className={navStyles.Logo_Image}
                     />
-                    <p className={navStyles.nav_logo_text}>CVF</p>
+                    <p className={navStyles.Logo_Text}>CVF</p>
                 </Link>
-                <ul className={navStyles.nav_list}>
+                <ul className={navStyles.List}>
                     {Links.map((link) => (
-                        <li className={navStyles.nav_item} key={link.href}>
+                        <li className={navStyles.Item} key={link.href}>
                             <Link 
                                 href={link.href}
-                                className={navStyles.nav_link}
+                                className={navStyles.Link}
                             >
                                 {link.text}
                             </Link>
                         </li>
                     ))}
                 </ul>
-                <div className={`${navStyles.nav_humbger} ${navMenuOpen? navStyles.nav_humbger_Open : ''}`} onClick={navMenuOpenToggle}>
-                    <div className={navStyles.nav_humbger_line}></div>
-                    <div className={navStyles.nav_humbger_line}></div>
-                    <div className={navStyles.nav_humbger_line}></div>
+                <div className={`${navStyles.Humbger} ${navMenuOpen? navStyles.Humbger_Open : ''}`} onClick={navMenuOpenToggle}>
+                    <div className={navStyles.Humbger_Line}></div>
+                    <div className={navStyles.Humbger_Line}></div>
+                    <div className={navStyles.Humbger_Line}></div>
                 </div>
                 <motion.div
                     initial={false}
                     animate={navMenuOpen ? 'open' : 'closed'}
                     variants={navVariants}
                     ref={containerRef}
-                    className={`${navStyles.nav_menu}`}>
-                    <ul className={navStyles.nav_menu_list}>
+                    className={`${navStyles.Menu}`}>
+                    <ul className={navStyles.Menu_List}>
                         {Links.map((link) => (
                             <motion.li
                                 variants={navItemVariants}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
-                                className={navStyles.nav_menu_item} key={link.href}>
+                                className={navStyles.Menu_Item} key={link.href}>
                                 <Link
                                     href={link.href}
-                                    className={navStyles.nav_menu_link}
+                                    className={navStyles.Menu_Link}
                                     onClick={navMenuOpenToggle}
                                 >
                                     {link.text}
@@ -145,7 +164,7 @@ export default function NavCompornent() {
                         ))}
                     </ul>
                 </motion.div>
-                <div className={`${navStyles.nav_bg} ${navMenuOpen ? navStyles.nav_bg_Open : ''}`} id="nav_bg" style={{display: 'none',}} />
+                <div className={`${navStyles.bg} ${navMenuOpen ? navStyles.bg_Open : ''}`} id="bg" style={{display: 'none',}} />
             </nav>
         </header>
     )
