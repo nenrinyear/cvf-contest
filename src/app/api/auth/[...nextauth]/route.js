@@ -54,37 +54,36 @@ export const authOptions = {
     },
     callbacks: {
         async signIn({ account, profile }) {
-            if (account.provider === "credentials") {
-                if (profile.email_verified === false) {
-                    return false;
-                }
-            }
-            
             if (account.provider === "discord") {
                 if(account == null || profile == null || account.access_token == null) return false;
                 await SignInThenJoinGuild(account.access_token, profile.id);
             }
             return true;
         },
-        async jwt({ token, user, account, profile, isNewUser }) {
-            if (account?.provider === "credentials") {
-                token.emailVerified = user.emailVerified;
-                token.uid = user.uid;
-                token.profile = null;
-                token.access_token = null;
-            }
-            if (account?.provider === "discord") {
-                token.emailVerified = true;
-                token.uid = user.id;
-                token.profile = profile;
-                token.access_token = account.access_token;
+        async jwt({ token, user, account, profile }) {
+            console.log(token);
+            if (user && account && profile) {
+                if (account?.provider === "credentials") {
+                    token.provider = "credentials";
+                    token.email = user.email;
+                    token.uid = user.uid;
+                    token.profile = null;
+                    token.access_token = null;
+                }
+                if (account?.provider === "discord") {
+                    token.provider = "discord";
+                    token.email = profile.email;
+                    token.uid = user.id;
+                    token.profile = profile;
+                    token.access_token = account.access_token;
+                }
             }
             return token;
         },
         // sessionにJWTトークンからのユーザ情報を格納
         async session({ session, token }) {
-            
-            session.user.emailVerified = token.emailVerified;
+            session.provider = token.provider;
+            session.user.email = token.email;
             session.user.uid = token.uid;
             session.user.profile = token.profile;
             session.user.access_token = token.access_token;
@@ -102,7 +101,7 @@ export const authOptions = {
             console.debug(code, message);
         },
     },
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
 };
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST}

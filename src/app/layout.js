@@ -66,14 +66,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
     "use client";
     return (
-        <html lang="ja">
-            <body>
-                <NextAuthProvider>
+        <NextAuthProvider>
+            <html lang="ja">
+                <body>
                     <NavCompornent />
                         {children}
                     <Analytics />
-                </NextAuthProvider>
-            </body>
-        </html>
+                </body>
+            </html>
+        </NextAuthProvider>
     )
 }
