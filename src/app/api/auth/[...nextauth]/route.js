@@ -102,6 +102,7 @@ export const authOptions = {
             console.debug(code, message);
         },
     },
+    secret: process.env.NEXTAUTH_SECRET,
 };
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST}
