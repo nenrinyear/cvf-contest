@@ -3,26 +3,27 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/client";
-import { signIn as signInByNextAuth } from "next-auth/react";
+import { signIn as signInByNextAuth, useSession } from "next-auth/react";
 
 import PageTransition from '@/components/PageTransition';
-import { Zen_Maru_Gothic } from 'next/font/google';
 import Link from "next/link";
 
+import styles from "../page.module.css";
+import PageHero from "@/components/Hero";
 
 
-const zen_maru_gothic_500 = Zen_Maru_Gothic({
-    subsets: ['latin'],
-    style: ['normal'],
-    weight: "500",
-    display: 'swap',
-})
 
 export default function Register() {
+    const data = useSession();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [error, setError] = useState("");
+
+    if (data.status === "authenticated") {
+        // redirect to /dash
+        redirect("/dash");
+    }
 
     const signUp = async () => {
         if (password !== passwordConfirm) {
@@ -47,43 +48,93 @@ export default function Register() {
         }
     };
 
+    const discordSignIn = async () => {
+        await signInByNextAuth("discord", {
+            callbackUrl: "/dash",
+        });
+    };
 
     return (
         <PageTransition>
-            <div className={zen_maru_gothic_500.className}>
-                <h1>新規登録</h1>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    placeholder="メールアドレス"
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    placeholder="パスワード"
-                />
-                <input
-                    type="password"
-                    value={passwordConfirm}
-                    onChange={(event) => setPasswordConfirm(event.target.value)}
-                    placeholder="パスワード確認"
-                />
-                <button
-                    type="button"
-                    onClick={() => {
+            <PageHero
+                Title="新規登録" />
+            <div className={styles.Top}>
+                {error && <div className={styles.Error}><p>{error}</p></div>}
+                <form
+                    onSubmit={(event) => {
+                        event.preventDefault();
                         signUp();
                     }}
+                    className={styles.Form}
                 >
-                    新規登録
-                </button>
-                {error && <p>{error}</p>}
-                <hr />
-                <p>既にアカウントをお持ちの方はこちら</p>
-                <Link
-                    href="/dash/login"
-                >ログイン</Link>
+                    <div className={styles.Form__Child}>
+                        <div className={styles.Input}>
+                            <label
+                                htmlFor="email"
+                                className={styles.Form__Label}
+                            >
+                                メールアドレス
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                placeholder="メールアドレス"
+                                required
+                                className={styles.Input__Text}
+                            />
+                        </div>
+                        <div className={styles.Input}>
+                            <label htmlFor="password1" className={styles.Form__Label}>
+                                パスワード
+                            </label>
+                            <input
+                                type="password"
+                                id="password1"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                                placeholder="パスワード"
+                                required
+                                className={styles.Input__Text}
+                            />
+                            <label htmlFor="password2" className={styles.Form__Label}>
+                                パスワード確認
+                            </label>
+                            <input
+                                type="password"
+                                id="password2"
+                                value={passwordConfirm}
+                                onChange={(event) => setPasswordConfirm(event.target.value)}
+                                placeholder="パスワード確認"
+                                required
+                                className={styles.Input__Text}
+                            />
+                        </div>
+                    </div>
+                    <button
+                        type="submit"
+                        className={styles.Button}
+                    >
+                        新規登録
+                    </button>
+                    <p className={styles.RegisterLogin__Text}>
+                        既にアカウントをお持ちの方はこちら↓
+                    </p>
+                    <Link href="/dash/login" className={styles.RegisterLogin__Button}>
+                        ログイン
+                    </Link>
+                    <hr className={styles.hr} />
+                    <button
+                        type="button"
+                        onClick={() => {
+                            discordSignIn();
+                        }}
+                        className={styles.DiscordButton}
+                    >
+                        Discordでログイン(同時に公式サーバーへ参加します)
+                    </button>
+                </form>
             </div>
         </PageTransition>
     )

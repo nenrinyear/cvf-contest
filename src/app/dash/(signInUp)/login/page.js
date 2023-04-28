@@ -5,15 +5,21 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/client";
 import { signIn as signInByNextAuth, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
+
+import styles from "../page.module.css";
+import PageHero from "@/components/Hero";
+import Errors from "../Errors.component";
 
 
-export default function SingIn() {
+export default function SingIn({ searchParams: { error: errorQuery } }) {
     const data = useSession();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    if (data.status !== "unauthenticated") {
+    if (data.status === "authenticated") {
         // redirect to /dash
         redirect("/dash");
     }
@@ -40,11 +46,8 @@ export default function SingIn() {
                 callbackUrl: "/dash",
             });
         } catch (e) {
-            if (e.code === "auth/user-not-found") {
-                setError("ユーザーが見つかりませんでした");
-                return;
-            } else if (e.code === "auth/wrong-password") {
-                setError("パスワードが間違っています");
+            if (e.code === "auth/user-not-found" || e.code === "auth/wrong-password") {
+                setError("ユーザーが見つからなかったか、パスワードが間違っています");
                 return;
             }
             console.error(e);
@@ -59,39 +62,77 @@ export default function SingIn() {
     };
 
     return (
-        <div>
-            {error && <p>{error}</p>}
-            <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="メールアドレス"
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder="パスワード"
-            />
-            <button
-                type="button"
-                onClick={() => {
-                    signIn();
-                }}
-            >
-                ログイン
-            </button>
-            <hr />
+        <PageTransition>
+            <PageHero
+                Title="ログイン" />
+            <div className={styles.Top}>
+                {error && <div className={styles.Error}><p>{error}</p></div>}
+                {errorQuery && <Errors error={errorQuery} />}
+                <form
+                    onSubmit={(event) => {
+                        event.preventDefault();
+                        signIn();
+                    }}
+                    className={styles.Form}
+                >
+                    <div className={styles.Form__Child}>
+                        <div className={styles.Input}>
+                            <label
+                                htmlFor="email"
+                                className={styles.Input__Label}
+                            >
+                                メールアドレス
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                                placeholder="メールアドレス"
+                                required
+                                className={styles.Input__Text}
+                                />
+                        </div>
+                        <div className={styles.Input}>
+                            <label
+                                htmlFor="password"
+                                className={styles.Input__Label}
+                            >
+                                パスワード
+                            </label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                                placeholder="パスワード"
+                                required
+                                className={styles.Input__Text}
+                                />
+                        </div>
+                    </div>
+                    <button type="submit" className={styles.Button}>
+                        ログイン
+                    </button>
+                    <p className={styles.RegisterLogin__Text}>
+                        メールアドレスとパスワードで新規登録する方は↓
+                    </p>
+                    <Link href="/dash/register" className={styles.RegisterLogin__Button}>
+                        新規登録
+                    </Link>
+                    <hr className={styles.hr} />
+                    <button
+                        type="button"
+                        onClick={() => {
+                            discordSignIn();
+                        }}
+                        className={styles.DiscordButton}
+                    >
+                        Discordでログイン(同時に公式サーバーへ参加します)
+                    </button>
+                </form>
 
-            <button
-                type="button"
-                onClick={() => {
-                    discordSignIn();
-                }}
-            >
-                Discordでログイン
-            </button>
-
-        </div>
+            </div>
+        </PageTransition>
     );
 };

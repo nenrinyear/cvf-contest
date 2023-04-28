@@ -1,0 +1,175 @@
+.Top {
+    width: 100%;
+    margin: 5rem 0;
+    padding: 0 70px;
+}
+@media (max-width: 700px) {
+    .Top {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+.Error {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ff0000;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.Form {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.Form__Child {
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.Input {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.Input__Label {
+    margin-bottom: 0.5rem;
+    font-size: .8rem;
+    font-weight: 500;
+    color: #666;
+}
+.Input__Text {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    background-color: transparent;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.Input__Text::placeholder {
+    font-size: 1rem;
+    color: #888;
+}
+.Input__Text:focus {
+    font-size: 1.2rem;
+    border-bottom: 2px solid #000;
+}
+.Input__Text--Error {
+    border-bottom: 1px solid #ff0000;
+}
+
+@media (max-width: 700px) {
+    .Form__Child {
+        display: block;
+    }
+    .Input {
+        width: 100%;
+    }
+}
+.Button {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #000!important;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.Button:hover {
+    background-color: #eee!important;
+    color: #000;
+}
+
+.RegisterLogin__Text {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    text-align: center;
+}
+.RegisterLogin__Button {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+    background-color: #eee!important;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.RegisterLogin__Button:hover {
+    background-color: #000!important;
+    color: #fff;
+}
+
+.hr {
+    width: 100%;
+    max-width: 650px;
+    margin: 2rem auto;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.DiscordButton {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2656ff;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #2656ff!important;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.DiscordButton:hover {
+    background-color: #fff!important;
+    color: #000;
+}

@@ -19,3 +19,9 @@
         margin: 0 auto;
     }
 }
+@media (max-width: 700px) {
+    .main {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
