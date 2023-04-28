@@ -3,17 +3,18 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import DiscordProvider from 'next-auth/providers/discord';
 
 
-import { auth } from '@/firebase/admin';
+import { auth, firebaseAdmin } from '@/firebase/admin';
 
 const myapi_host = process.env.CVF2023_MYAPI_HOST;
 
-async function SignInThenJoinGuild(access_token, user_id) {
+export async function SignInThenJoinGuild(access_token, user_id) {
     const res = await fetch(`https://discord.com/api/guilds/${process.env.CVF2023_Discord_Guild_ID}/members/${user_id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${access_token}`
         },
+        cache: "no-cache",
     })
     if (res.ok) {
         return res.json();
@@ -21,15 +22,17 @@ async function SignInThenJoinGuild(access_token, user_id) {
     return null;
 }
 
-async function isNewUser(email) {
+export async function isNewUser(email) {
     const __res = await fetch(`${myapi_host}/existCheck`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${process.env.CVF2023_MYAPI_SECRET}`,
+            "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
             email: email
-        },
+        }),
+        cache: "no-cache",
     });
     const res = await __res.json();
     if (res['response_code'] === 200 && res['response'] === 'true') {
@@ -39,15 +42,17 @@ async function isNewUser(email) {
     }
 }
 
-async function getUserDataByDB(email) {
+export async function getUserDataByDB(email) {
     const __res = await fetch(`${myapi_host}/getUserData`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${process.env.CVF2023_MYAPI_SECRET}`,
+            "Content-Type": "application/json",
         },
-        body: {
+        body: JSON.stringify({
             email: email
-        },
+        }),
+        cache: "no-cache",
     });
     const res = await __res.json();
     if (res['response_code'] === 200) {
@@ -65,6 +70,7 @@ export const authOptions = {
                 if (idToken) {
                     try {
                         const decoded = await auth.verifyIdToken(idToken);
+                        console.log(decoded);
 
                         return { ...decoded };
                     } catch (err) {
@@ -94,25 +100,16 @@ export const authOptions = {
             if (account.provider === "discord") {
                 if(account == null || profile == null || account.access_token == null) return false;
                 await SignInThenJoinGuild(account.access_token, profile.id);
-                if(await isNewUser(profile.email)) {
-                    return true;
-                } else {
-                    return '/dash/setup';
-                }
+                return true;
             }
             if (account.provider === "credentials") {
-                if (await isNewUser(user.email)) {
-                    return true;
-                } else {
-                    return '/dash/setup';
-                }
+                if (user == null || user.email == null) return false;
+                return true;
             }
-
             return false;
         },
         async jwt({ token, user, account, profile }) {
-            console.log(token);
-            if (user && account && profile) {
+            if (typeof account !== 'undefined' && (typeof user !== 'undefined' || typeof profile !== 'undefined') ) {
                 if (account?.provider === "credentials") {
                     token.provider = "credentials";
                     token.email = user.email;
@@ -131,6 +128,8 @@ export const authOptions = {
                     token.profile = profile;
                     token.access_token = account.access_token;
                 }
+            } else {
+                token.userData = await getUserDataByDB(token.email);
             }
             return token;
         },

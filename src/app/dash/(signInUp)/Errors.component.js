@@ -10,6 +10,7 @@ const errors = {
     EmailSignin: "メールアドレスとパスワードを確認してください",
     CredentialsSignin: "メールアドレスとパスワードを確認してください",
     OAuthAccountNotLinked: "このアカウントは既に使用されています。別のアカウントでサインインしてみてください",
+    AccessDenied: "アクセスが拒否されました",
     default: "エラーが発生しました",
 };
 

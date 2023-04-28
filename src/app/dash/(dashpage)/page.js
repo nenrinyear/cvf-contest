@@ -1,6 +1,7 @@
 "use client";
 
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/react";
+import { redirect } from 'next/navigation';
 
 
 export default function Dashboard() {
@@ -9,6 +10,10 @@ export default function Dashboard() {
     
     if (status === 'unauthenticated') return <p>unauthenticated</p>
     if (status === 'authenticated') {
+        if (session.user.userData === null) {
+            redirect('/dash/setup');
+        }
+
         console.log(session, status)
         return (
             <div>

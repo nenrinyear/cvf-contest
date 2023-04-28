@@ -65,6 +65,8 @@
     padding: 0.5rem 0;
     border: none;
     border-bottom: 1px solid #000;
+    border-radius: 0;
+    --webkit-appearance: none;
     font-size: 1.1rem;
     font-weight: 500;
     color: #000;
