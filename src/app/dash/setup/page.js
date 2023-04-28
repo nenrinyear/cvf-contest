@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { redirect, useRouter } from "next/navigation";
+import PageHero from "@/components/Hero";
 
 export default function SignUpThenInitPage() {
     const router = useRouter();
@@ -47,45 +48,51 @@ export default function SignUpThenInitPage() {
     }
     if (status === "authenticated" && session.user.userData === null) {
         return (
-            <div className={styles.Top}>
-                <h1>初期登録</h1>
-                <pre>
-                    {JSON.stringify(session, null, 2)}
-                </pre>
-                <form
-                    onSubmit={setData}
-                    className={styles.Form}
-                >
-                    {error && <div className={styles.Error}><p>{error}</p></div>}
-                    <div className={styles.Form__Child}>
-                        <div className={styles.Input__Top}>
-                            <label htmlFor="name" className={styles.Input__Label}>名前</label>
-                            <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                value={name}
-                                required
-                                className={styles.Input__Text}
-                                onChange={e => setName(e.target.value)}
-                            />
-                        </div>
-                        <div className={styles.Input__Top}>
-                            <label htmlFor="twitterID" className={styles.Input__Label}>Twitter ID</label>
-                            <input
-                                type="text"
-                                name="twitterID"
-                                id="twitterID"
-                                value={twitterID}
-                                required
-                                className={styles.Input__Text}
-                                onChange={e => setTwitterID(e.target.value)}
-                            />
-                        </div>
-                        <button type="submit" className={styles.Button}>登録</button>
+            <>
+                <PageHero
+                    Title="初回登録" />
+                <div className={styles.Top}>
+                    <div className={styles.Description}>
+                        <p>初回登録を行います。</p>
+                        <p>活動名・TwitterID(任意)を入力いただき、登録ボタンを押してください</p>
+                        <p>登録後、画面を再読み込みしていただくとマイページへ移動します</p>
+                        <p>(1回入力いただくと登録は完了します)</p>
                     </div>
-                </form>
-            </div>
+                    <form
+                        onSubmit={setData}
+                        className={styles.Form}
+                    >
+                        {error && <div className={styles.Error}><p>{error}</p></div>}
+                        <div className={styles.Form__Child}>
+                            <div className={styles.Input__Top}>
+                                <label htmlFor="name" className={styles.Input__Label}>活動名<span style={{ color: '#ee1212',}}>(*)</span></label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    value={name}
+                                    required
+                                    className={styles.Input__Text}
+                                    onChange={e => setName(e.target.value)}
+                                />
+                            </div>
+                            <div className={styles.Input__Top}>
+                                <label htmlFor="twitterID" className={styles.Input__Label}>Twitter ID</label>
+                                <input
+                                    type="text"
+                                    name="twitterID"
+                                    id="twitterID"
+                                    value={twitterID}
+                                    required
+                                    className={styles.Input__Text}
+                                    onChange={e => setTwitterID(e.target.value)}
+                                />
+                            </div>
+                            <button type="submit" className={styles.Button}>登録</button>
+                        </div>
+                    </form>
+                </div>
+            </>
         )
     } else if (status === "authenticated" && session.user.userData !== null) {
         redirect("/dash");
