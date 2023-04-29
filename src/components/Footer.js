@@ -44,7 +44,7 @@ const links = [
                 href: "/submit",
             }
         ]
-    },
+    },/*
     {
         name: "過去企画での作品一覧",
         href: "/archive",
@@ -66,8 +66,8 @@ const links = [
     {
         name: "お問い合わせ",
         href: "/contact",
-    },
-    ]
+    },*/
+]
 
 export default function Footer() {
     return (

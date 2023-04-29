@@ -45,7 +45,7 @@ const jost = Jost({
 })
 
 
-export default function NavCompornent() {
+export default function NavCompornent({ isStaticFixed = false, isFixedTop = false }) {
     const { data: session, status } = useSession();
     const Links = [
         {
@@ -93,6 +93,10 @@ export default function NavCompornent() {
     useEffect(() => {
         const navShow = () => {
             const nav = document.getElementById('nav');
+            if (isStaticFixed) {
+                nav.classList.add(navStyles.Top_Fixed);
+                return;
+            };
             if (window.scrollY > 0) {
                 nav.classList.add(navStyles.Top_Fixed);
             } else {
@@ -105,11 +109,11 @@ export default function NavCompornent() {
         navShow();
         window.addEventListener('scroll', navShow);
         return () => window.removeEventListener('scroll', navShow);
-    }, [navMenuOpen,]);
+    }, [navMenuOpen, isStaticFixed]);
     const containerRef = useRef(null);
     return (
         <header className={navStyles.Nav}>
-            <nav className={`${navStyles.Top} ${jost.className}`} id='nav'>
+            <nav className={`${navStyles.Top} ${jost.className} ${isFixedTop? navStyles.Fixed_Top: ''}`} id='nav'>
                 <Link
                     className={navStyles.Logo}
                     href="/"

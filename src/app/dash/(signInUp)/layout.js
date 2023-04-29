@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer"
 import { Zen_Maru_Gothic } from "next/font/google"
 
 const zen_maru_gothic = Zen_Maru_Gothic({
@@ -14,6 +15,7 @@ export default function SignInUpLayout({ children }) {
             height: '100%',
         }} className={zen_maru_gothic.className}>
             {children}
+            <Footer />
         </div>
     )
 }
