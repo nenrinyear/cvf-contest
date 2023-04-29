@@ -1,24 +1,12 @@
+"use client";
 import Link from 'next/link'
 import styles from './layout.module.css'
 
 import { useSession } from "next-auth/react";
 import { redirect } from 'next/navigation';
 
-export const metadata = {
-    title: {
-        default: 'マイページ - CVF',
-        template: '%s | CVF',
-    },
-    description: 'CVFのマイページです。アカウント設定や最新情報を確認できます。',
-    robots: {
-        index: false,
-        follow: false,
-        nocache: true,
-    }
-}
 
 export default function DashboardLayout({ children }) {
-    "use client";
     const { data: session, status } = useSession();
     if (status === 'loading') return <p>loading...</p>
     
