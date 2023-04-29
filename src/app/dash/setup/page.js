@@ -3,11 +3,11 @@ import styles from "./page.module.css";
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import PageHero from "@/components/Hero";
+import Link from "next/link";
 
 export default function SignUpThenInitPage() {
-    const router = useRouter();
     const { data: session, status } = useSession();
     const [error, setError] = useState("");
     
@@ -30,7 +30,13 @@ export default function SignUpThenInitPage() {
             cache: "no-cache",
         }).then(res => res.text());
 
-        setTimeout(router.push("/"), 1000);
+        setTimeout(() => {
+            if (__chk === "OK") {
+                location.reload();
+            } else {
+                setError("エラーが発生しました。お問い合わせください");
+            }
+        }, 1000);
     }
 
     if (status === "loading") {
@@ -58,12 +64,27 @@ export default function SignUpThenInitPage() {
                         <p>登録後、画面を再読み込みしていただくとマイページへ移動します</p>
                         <p>(1回入力いただくと登録は完了します)</p>
                     </div>
+                    <div className={styles.Loading_Spinner}>
+                        <div className={styles.Loading_Spinner__Child}></div>
+                    </div>
+                    {error && <div className={styles.Error}><p>{error}</p></div>}
                     <form
                         onSubmit={setData}
                         className={styles.Form}
                     >
-                        {error && <div className={styles.Error}><p>{error}</p></div>}
                         <div className={styles.Form__Child}>
+                            <div className={styles.Input__Top}>
+                                <label htmlFor="email" className={styles.Input__Label}>メールアドレス</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={session.user.email}
+                                    required
+                                    className={styles.Input__Text}
+                                    disabled
+                                />
+                            </div>
                             <div className={styles.Input__Top}>
                                 <label htmlFor="name" className={styles.Input__Label}>活動名<span style={{ color: '#ee1212',}}>(*)</span></label>
                                 <input
@@ -91,6 +112,14 @@ export default function SignUpThenInitPage() {
                             <button type="submit" className={styles.Button}>登録</button>
                         </div>
                     </form>
+                    <div className={styles.BackToDashboard}>
+                        <Link
+                            href="/dash"
+                            className={styles.Link}
+                        >
+                            ダッシュボードへ戻る
+                        </Link>
+                    </div>
                 </div>
             </>
         )

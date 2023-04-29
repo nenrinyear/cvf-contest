@@ -1,5 +1,5 @@
-import CanvasAnimation from '../../../components/CanvasAnimation';
-import LogoMovieAnimation from '../../../components/LogoAnimation';
+import CanvasAnimation from '@/components/CanvasAnimation';
+import LogoMovieAnimation from '@/components/LogoAnimation';
 
 import styles from './Header.module.css';
 import { Jost } from 'next/font/google';

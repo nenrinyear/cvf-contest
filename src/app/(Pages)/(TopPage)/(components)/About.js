@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './About.module.css';
-import PageViewAnimate from '../../../components/PageViewAnimate';
+import PageViewAnimate from '@/components/PageViewAnimate';
 
 import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 const jost = Jost({

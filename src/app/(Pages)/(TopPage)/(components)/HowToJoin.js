@@ -1,5 +1,5 @@
 import styles from './HowToJoin.module.css';
-import PageViewAnimate from '../../../components/PageViewAnimate';
+import PageViewAnimate from '@/components/PageViewAnimate';
 
 import { VscAccount } from 'react-icons/vsc';
 import { BsPersonVideo2 } from 'react-icons/bs';

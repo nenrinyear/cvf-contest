@@ -1,6 +1,6 @@
 "use server";
 import styles from './Schedule.module.css';
-import PageViewAnimate from '../../../components/PageViewAnimate';
+import PageViewAnimate from '@/components/PageViewAnimate';
 
 import Link from 'next/link';
 

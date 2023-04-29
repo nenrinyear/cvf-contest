@@ -5,9 +5,9 @@ import Header from './(components)/Header';
 import About from './(components)/About';
 
 import styles from './(components)/page.module.css';
-import PageTransition from '../../components/PageTransition';
+import PageTransition from '@/components/PageTransition';
 import Schedule from './(components)/Schedule';
-import Footer from '../../components/Footer';
+import Footer from '@/components/Footer';
 import HowToJoin from './(components)/HowToJoin';
 
 const jost = Jost({

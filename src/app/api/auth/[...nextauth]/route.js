@@ -70,7 +70,6 @@ export const authOptions = {
                 if (idToken) {
                     try {
                         const decoded = await auth.verifyIdToken(idToken);
-                        console.log(decoded);
 
                         return { ...decoded };
                     } catch (err) {

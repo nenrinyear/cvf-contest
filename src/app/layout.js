@@ -1,4 +1,3 @@
-import NavCompornent from '../components/Navbar';
 import './globals.css';
 
 const url = process.env.NEXT_PUBLIC_HOST_URL;
@@ -69,8 +68,7 @@ export default function RootLayout({ children }) {
         <NextAuthProvider>
             <html lang="ja">
                 <body>
-                    <NavCompornent />
-                        {children}
+                    {children}
                     <Analytics />
                 </body>
             </html>

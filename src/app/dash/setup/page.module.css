@@ -86,6 +86,10 @@
 .Input__Text--Error {
     border-bottom: 1px solid #ff0000;
 }
+.Input__Text:disabled {
+    border-bottom: 1px solid #ccc;
+    color: #ccc;
+}
 
 
 .Button {
@@ -107,4 +111,54 @@
 .Button:hover {
     background-color: #eee!important;
     color: #000;
+}
+
+.BackToDashboard {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 1rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Link {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff!important;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.Link:hover {
+    background-color: #000!important;
+    color: #fff;
+}
+
+.Error {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ff0000;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

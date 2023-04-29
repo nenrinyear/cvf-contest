@@ -1,5 +1,5 @@
-import PageTransition from "../../../components/PageTransition";
-import Footer from "../../../components/Footer";
+import PageTransition from "@/components/PageTransition";
+import Footer from "@/components/Footer";
 
 export const metadata = {
     title: "過去のCVF(第二回)",
