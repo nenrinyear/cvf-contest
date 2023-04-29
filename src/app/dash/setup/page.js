@@ -6,6 +6,7 @@ import { useState } from "react";
 import { redirect } from "next/navigation";
 import PageHero from "@/components/Hero";
 import Link from "next/link";
+import Errors from "../(signInUp)/Errors.component";
 
 export default function SignUpThenInitPage() {
     const { data: session, status } = useSession();
@@ -67,7 +68,7 @@ export default function SignUpThenInitPage() {
                     <div className={styles.Loading_Spinner}>
                         <div className={styles.Loading_Spinner__Child}></div>
                     </div>
-                    {error && <div className={styles.Error}><p>{error}</p></div>}
+                    {error && <Errors>{error}</Errors>}
                     <form
                         onSubmit={setData}
                         className={styles.Form}
