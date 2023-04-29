@@ -7,6 +7,7 @@ import { signIn as signInByNextAuth, useSession } from "next-auth/react";
 
 import PageTransition from '@/components/PageTransition';
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import styles from "../page.module.css";
 import PageHero from "@/components/Hero";

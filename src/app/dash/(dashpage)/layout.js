@@ -17,7 +17,7 @@ export default function DashboardLayout({ children }) {
                     <div className={styles.NeedToLogin}>
                         <div className={styles.NeedToLogin_Title}>
                             <p className={styles.NeedToLogin_Title_Text}>
-                                ログインが必要です。
+                                マイページを表示するにはログインが必要です。
                             </p>
                         </div>
                         <Link

@@ -14,12 +14,12 @@ const errors = {
     default: "エラーが発生しました",
 };
 
-export default function Errors({ error }) {
+export default function Errors({ error, children = false }) {
     return (
         <div className={styles.Error} onClick={e => {
             e.currentTarget.remove();
         }}>
-            <p>{errors[error] || errors.default}</p>
+            <p>{children || errors[error] || errors.default}</p>
         </div>
     );
 }
