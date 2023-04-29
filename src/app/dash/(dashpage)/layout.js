@@ -1,4 +1,3 @@
-"use client";
 import Link from 'next/link'
 import styles from './layout.module.css'
 
@@ -19,6 +18,7 @@ export const metadata = {
 }
 
 export default function DashboardLayout({ children }) {
+    "use client";
     const { data: session, status } = useSession();
     if (status === 'loading') return <p>loading...</p>
     
