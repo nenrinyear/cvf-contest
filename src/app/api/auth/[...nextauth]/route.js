@@ -12,7 +12,10 @@ export async function SignInThenJoinGuild(access_token, user_id) {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${access_token}`
+            "Authorization": `Bot ${process.env.CVF2023_Discord_Bot_Token}`
+        },
+        body: {
+            access_token: access_token
         },
         cache: "no-cache",
     })

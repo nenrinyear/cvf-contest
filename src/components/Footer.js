@@ -120,7 +120,7 @@ export default function Footer() {
                         </a>
                         <a
                             className={styles.Icon}
-                            href="https://discord.gg/5Q9Q5QJ"
+                            href="https://discord.gg/4gDGB5pas7"
                             title='Discord Official Server'
                             target='_blank'
                             rel="noopener noreferrer">
