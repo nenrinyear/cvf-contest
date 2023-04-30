@@ -14,9 +14,9 @@ export async function SignInThenJoinGuild(access_token, user_id) {
             "Content-Type": "application/json",
             "Authorization": `Bot ${process.env.CVF2023_Discord_Bot_Token}`
         },
-        body: {
+        body: JSON.stringify({
             access_token: access_token
-        },
+        }),
         cache: "no-cache",
     })
     if (res.ok) {
