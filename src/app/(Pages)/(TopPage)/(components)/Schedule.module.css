@@ -20,7 +20,9 @@
 }
 .Title_text {
     width: fit-content;
-    font-size: 3rem;
+    font-size: 4rem;
+    font-weight: 300;
+    font-style: italic;
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
@@ -31,6 +33,7 @@
     width: fit-content;
     font-size: 1.5rem;
     font-weight: 300;
+    font-style: italic;
     display: flex;
     align-items: center;
     bottom: 0.5rem;

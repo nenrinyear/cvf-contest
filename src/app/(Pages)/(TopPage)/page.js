@@ -3,12 +3,13 @@ import { Jost, Zen_Maru_Gothic } from 'next/font/google';
 
 import Header from './(components)/Header';
 import About from './(components)/About';
+import Awards from './(components)/Awards';
+import HowToJoin from './(components)/HowToJoin';
+import Schedule from './(components)/Schedule';
 
 import styles from './(components)/page.module.css';
 import PageTransition from '@/components/PageTransition';
-import Schedule from './(components)/Schedule';
 import Footer from '@/components/Footer';
-import HowToJoin from './(components)/HowToJoin';
 
 const jost = Jost({
     subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function Home() {
                 <Header />
                 <main className={styles.main}>
                     <About />
+                    <Awards />
                     <HowToJoin />
                     <Schedule />
                 </main>

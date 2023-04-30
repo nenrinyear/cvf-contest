@@ -32,7 +32,7 @@ const TimelineData = [
     },
     {
         "step": 2,
-        "title": "参加登録開始",
+        "title": "告知&参加登録開始",
         "date": "2023/4/30",
         "content": [
             {
@@ -104,9 +104,9 @@ export default function Schedule() {
             <div className={styles.top} id='schedule'>
                 <div className={styles.Layout}>
                     <div className={styles.Title}>
-                        <p className={`${styles.Title_text}`}>
+                        <p className={`${styles.Title_text} ${jost.className}`}>
                             Schedule
-                            <span className={`${styles.Title_text_ja} ${jost.className}`}>
+                            <span className={`${styles.Title_text_ja}`}>
                                 参加から審査の流れ
                             </span>
                         </p>

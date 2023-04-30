@@ -1,4 +1,4 @@
-.top {
+.Top {
     width: 100%;
     position: relative;
     z-index: 0;
@@ -63,47 +63,47 @@
     }
 }
 
-.About {
+
+.Screening {
     width: 100%;
+    height: fit-content;
     position: relative;
     z-index: 0;
-    margin-right: 0;
+    display: block;
+    margin-bottom: 1rem;
 }
-.About_text {
+.Screening_title {
     width: 100%;
-    margin-left: auto;
-    font-size: 1rem;
-    line-height: 2rem;
+    height: fit-content;
+    position: relative;
+    z-index: 0;
+    display: block;
+    margin-bottom: 1rem;
 }
-@media (max-width: 700px) {
-    .About {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .About_text {
-        font-size: 1rem;
-    }
+.Screening_title_text {
+    width: fit-content;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    white-space: nowrap;
 }
 
-.GoToAboutPage {
-    width: fit-content;
+.Screening_content {
+    width: 100%;
+    height: fit-content;
     position: relative;
     z-index: 0;
-    margin-left: auto;
-    margin-right: 0;
+    display: block;
+    margin-bottom: 1rem;
 }
-.GoToAboutPage_text {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-.GoToAboutPage_text_link {
+.Screening_content_text {
     width: fit-content;
     font-size: 1rem;
-    font-weight: 200;
-    font-style: italic;
-    color: #000;
-    text-decoration: none;
-    border-bottom: 1px solid #000;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    white-space: nowrap;
 }

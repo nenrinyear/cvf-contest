@@ -2,19 +2,13 @@ import Link from 'next/link';
 import styles from './About.module.css';
 import PageViewAnimate from '@/components/PageViewAnimate';
 
-import { Jost, Zen_Maru_Gothic } from 'next/font/google';
+import { Jost } from 'next/font/google';
 const jost = Jost({
     subsets: ['latin'],
     style: ['normal', 'italic'],
     weights: [200, 300, 500],
     display: 'swap',
 });
-const zen_maru_gothic_400 = Zen_Maru_Gothic({
-    subsets: ['latin'],
-    style: ['normal'],
-    weight: "400",
-    display: 'swap',
-})
 
 export default function About() {
     return (
@@ -22,15 +16,15 @@ export default function About() {
             <div className={styles.top} id='about'>
                 <div className={styles.Layout}>
                     <div className={styles.Title}>
-                        <p className={`${styles.Title_text}`}>
+                        <p className={`${styles.Title_text} ${jost.className}`}>
                             What&#x27;s CVF?
-                            <span className={`${styles.Title_text_ja} ${jost.className}`}>
+                            <span className={`${styles.Title_text_ja}`}>
                                 CVFって何？
                             </span>
                         </p>
                     </div>
                     <div className={styles.About}>
-                        <p className={`${styles.About_text} ${zen_maru_gothic_400.className}`}>
+                        <p className={`${styles.About_text}`}>
                             CVFとは、オンラインで開催される、参加費無料の映像イベントです。
                             <br />
                             <br />
