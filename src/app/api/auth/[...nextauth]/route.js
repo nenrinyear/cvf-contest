@@ -20,6 +20,7 @@ export async function SignInThenJoinGuild(access_token, user_id) {
         cache: "no-cache",
     })
     if (res.ok) {
+        console.error(res.status(), res.json());
         return res.json();
     }
     return null;
