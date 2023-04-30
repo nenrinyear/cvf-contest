@@ -52,10 +52,6 @@ export default function NavCompornent({ isStaticFixed = false, isFixedTop = fals
             href: '/',
             text: 'Home',
         },
-        {
-            href: '/about',
-            text: 'About',
-        },
     ];
 
     if (status === "authenticated") {

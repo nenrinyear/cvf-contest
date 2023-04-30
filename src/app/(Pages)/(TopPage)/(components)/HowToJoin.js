@@ -17,9 +17,9 @@ const jost = Jost({
 
 export default function HowToJoin() {
     return (
-        <PageViewAnimate>
-            <div className={styles.Top}>
-                <div className={styles.Layout}>
+        <div className={styles.Top}>
+            <div className={styles.Layout}>
+                <PageViewAnimate>
                     <div className={styles.Title}>
                         <p className={`${styles.Title_text} ${jost.className}`}>
                             How to Join
@@ -66,6 +66,8 @@ export default function HowToJoin() {
                             </p>
                         </div>
                     </div>
+                </PageViewAnimate>
+                <PageViewAnimate>
                     <div className={styles.HowToJoin_Note}>
                         <div className={styles.HowToJoin_Note__TopTitle}>
                             <p className={styles.HowToJoin_Note__TopTitle_text}>
@@ -126,6 +128,8 @@ export default function HowToJoin() {
                             </div>
                         </div>
                     </div>
+                </PageViewAnimate>
+                <PageViewAnimate>
                     <div className={styles.HowToJoin_Note}>
                         <div className={styles.HowToJoin_Note__TopTitle}>
                             <p className={styles.HowToJoin_Note__TopTitle_text}>
@@ -180,9 +184,8 @@ export default function HowToJoin() {
                             </div>
                         </div>
                     </div>
-                    
-                </div>
+                </PageViewAnimate>
             </div>
-        </PageViewAnimate>
+        </div>
     )
 }
