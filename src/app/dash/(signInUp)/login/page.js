@@ -67,7 +67,7 @@ export default function SingIn({ searchParams: { error: errorQuery } }) {
                 Title="ログイン" />
             <div className={styles.Top}>
                 {error && <div className={styles.Error}><p>{error}</p></div>}
-                {errorQuery && <Errors error={errorQuery} />}
+                {errorQuery && <div className={styles.Error}><p>{errorQuery}</p></div>}
                 <form
                     onSubmit={(event) => {
                         event.preventDefault();

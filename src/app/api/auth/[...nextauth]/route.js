@@ -18,12 +18,11 @@ export async function SignInThenJoinGuild(access_token, user_id) {
             access_token: access_token
         }),
         cache: "no-cache",
-    })
-    if (res.ok) {
-        console.error(res.status(), res.json());
-        return res.json();
+    });
+    if (res.ok || res.status === 204) {
+        return true;
     }
-    return null;
+    return false;
 }
 
 export async function isNewUser(email) {
