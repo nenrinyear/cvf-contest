@@ -41,40 +41,40 @@ export default function DashboardLayout({ children }) {
             <>
                 <div className={styles.Top}>
                     <div className={styles.LeftFixedMenu}>
-                        <div className={styles.LeftFixedMenu_Container}>
-                            <div className={styles.LeftFixedMenu_Container_Menu}>
-                                <div className={styles.LeftFixedMenu_Container_Menu_Title}>
-                                    <p className={styles.LeftFixedMenu_Container_Menu_Title_Text}>
+                        <div className={styles.Container}>
+                            <div className={styles.Menu}>
+                                <div className={styles.Menu_Title}>
+                                    <p className={styles.Menu_Title_Text}>
                                         メニュー
                                     </p>
                                 </div>
-                                <div className={styles.LeftFixedMenu_Container_Menu_Item}>
+                                <div className={styles.Menu_Item}>
                                     <Link
-                                        className={styles.LeftFixedMenu_Container_Menu_Item_Text}
+                                        className={styles.Menu_Item_Text}
                                         href="/dash"
                                     >
                                         マイページトップ
                                     </Link>
                                 </div>
-                                <div className={styles.LeftFixedMenu_Container_Menu_Item}>
+                                <div className={styles.Menu_Item}>
                                     <Link
-                                        className={styles.LeftFixedMenu_Container_Menu_Item_Text}
+                                        className={styles.Menu_Item_Text}
                                         href="/dash/news"
                                     >
                                         ニュース
                                     </Link>
                                 </div>
-                                <div className={styles.LeftFixedMenu_Container_Menu_Item}>
+                                <div className={styles.Menu_Item}>
                                     <Link
-                                        className={styles.LeftFixedMenu_Container_Menu_Item_Text}
+                                        className={styles.Menu_Item_Text}
                                         href="/dash/submit"
                                     >
                                         アップロード
                                     </Link>
                                 </div>
-                                <div className={styles.LeftFixedMenu_Container_Menu_Item}>
+                                <div className={styles.Menu_Item}>
                                     <Link
-                                        className={styles.LeftFixedMenu_Container_Menu_Item_Text}
+                                        className={styles.Menu_Item_Text}
                                         href="/dash/settings"
                                     >
                                         アカウント設定
