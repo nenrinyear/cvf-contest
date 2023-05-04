@@ -15,13 +15,23 @@ import PageHero from "@/components/Hero";
 
 
 export default function Register() {
-    const data = useSession();
+    const { data: session, status } = useSession();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [error, setError] = useState("");
 
-    if (data.status === "authenticated") {
+    if (status === 'loading') {
+        return (
+            <>
+                <div className={styles.LoadingTop}>
+                    <div className={styles.Spinner} />
+                </div>
+            </>
+        )
+    }
+
+    if (status === "authenticated") {
         // redirect to /dash
         redirect("/dash");
     }

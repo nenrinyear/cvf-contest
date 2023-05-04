@@ -1,3 +1,21 @@
+.LoadingTop {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.LoadingTop .Spinner {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    border-top: 4px solid #000;
+    animation: spin 1s linear infinite;
+}
+
 .Top {
     width: 100%;
     margin: 5rem 0;

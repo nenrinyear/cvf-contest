@@ -8,7 +8,15 @@ import { redirect } from 'next/navigation';
 
 export default function DashboardLayout({ children }) {
     const { data: session, status } = useSession();
-    if (status === 'loading') return <p>loading...</p>
+    if (status === 'loading') {
+        return (
+            <>
+                <div className={styles.LoadingTop}>
+                    <div className={styles.Spinner} />
+                </div>
+            </>
+        )
+    }
     
     if (status === 'unauthenticated') {
         return (
@@ -35,8 +43,6 @@ export default function DashboardLayout({ children }) {
         if (session.user.userData === null) {
             redirect('/dash/setup');
         }
-
-        console.log(session, status)
         return (
             <>
                 <div className={styles.Top}>

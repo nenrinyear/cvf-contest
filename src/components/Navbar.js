@@ -71,7 +71,6 @@ export default function NavCompornent({ isStaticFixed = false, isFixedTop = fals
     }
     const [navMenuOpen, setNavMenuOpen] = useState(false);
     const navMenuOpenToggle = () => {
-        console.log(!navMenuOpen);
         const nav = document.getElementById('bg');
         if (navMenuOpen) {
             setTimeout(() => {
@@ -97,7 +96,6 @@ export default function NavCompornent({ isStaticFixed = false, isFixedTop = fals
                 nav.classList.add(navStyles.Top_Fixed);
             } else {
                 if (!navMenuOpen) {
-                    console.log(navMenuOpen);
                     nav.classList.remove(navStyles.Top_Fixed);
                 }
             }
