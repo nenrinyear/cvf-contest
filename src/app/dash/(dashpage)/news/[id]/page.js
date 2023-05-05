@@ -13,6 +13,11 @@ export default async function NewsDetail({ id }) {
         )
     }
     const news = newsData.contents[0];
+
+    let date = new Date(news.updatedAt);
+    if (new Date().getTimezoneOffset() === 0) {
+        date.setHours(date.getHours() + 9);
+    }
     
     return (
         <div>
@@ -24,7 +29,7 @@ export default async function NewsDetail({ id }) {
             <h1 className={styles.Title}>{news.title}</h1>
             <p>
                 <time dateTime={news.updatedAt}>
-                    {new Date(news.updatedAt).toLocaleDateString('ja-JP', {
+                    {date.toLocaleDateString('ja-JP', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
