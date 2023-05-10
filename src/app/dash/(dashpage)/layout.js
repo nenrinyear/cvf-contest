@@ -1,24 +1,20 @@
-"use client";
 import Link from 'next/link'
 import styles from './layout.module.css'
 
-import { useSession } from "next-auth/react";
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 
+export const metadata = {
+    title: "マイページ",
+    description: "CVF参加者のマイページです。",
+}
 
-export default function DashboardLayout({ children }) {
-    const { data: session, status } = useSession();
-    if (status === 'loading') {
-        return (
-            <>
-                <div className={styles.LoadingTop}>
-                    <div className={styles.Spinner} />
-                </div>
-            </>
-        )
-    }
+export default async function DashboardLayout({ children }) {
+    "use server";
+    const session = await getServerSession(authOptions);
     
-    if (status === 'unauthenticated') {
+    if (!session) {
         return (
             <>
                 <div className={styles.Top}>
@@ -39,7 +35,7 @@ export default function DashboardLayout({ children }) {
             </>
         )
     }
-    if (status === 'authenticated') {
+    if (typeof session !== 'undefined') {
         if (session.user.userData === null) {
             redirect('/dash/setup');
         }

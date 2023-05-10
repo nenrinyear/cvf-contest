@@ -3,8 +3,15 @@ import styles from './page.module.css';
 
 import { microcmsClient } from './microcms-client';
 import Link from 'next/link';
-export default async function DashNews() {
-    const newsData = await microcmsClient.get({ endpoint: 'news' });
+import { useSearchParams } from 'next/navigation';
+export default async function DashNews({ searchParams }) {
+    let newsData, isDraft = false;
+    if (process.env.NODE_ENV !== 'production') {
+        newsData = await microcmsClient.get({ endpoint: 'news-dash', queries: { draftKey: searchParams['draftKey'] } });
+        isDraft = true;
+    } else {
+        newsData = await microcmsClient.get({ endpoint: 'news-dash' });
+    }
 
     
     return (
@@ -19,27 +26,43 @@ export default async function DashNews() {
                     参加者向けのお知らせや、大会の情報を掲載しています。
                 </p>
                 {newsData.contents.map((news) => {
-                    let date = new Date(news.updatedAt);
+                    let publishedAtDate = new Date(news.publishedAt?? news.createdAt),
+                        updatedAtDate = new Date(news.updatedAt);
                     if (new Date().getTimezoneOffset() === 0) {
-                        date.setHours(date.getHours() + 9);
+                        publishedAtDate.setHours(publishedAtDate.getHours() + 9);
+                        updatedAtDate.setHours(updatedAtDate.getHours() + 9);
                     }
                     return (
                         <div className={styles.News} key={news.id}>
                             <div className={styles.News_Date}>
-                                <Link href={`/dash/news/${news.id}`}>
-                                    <time dateTime={news.updatedAt}>
-                                        {date.toLocaleDateString('ja-JP', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric',
-                                            hour: 'numeric',
-                                            minute: 'numeric',
-                                        })}
-                                    </time>
-                                </Link>
+                                {publishedAtDate.getTime() < updatedAtDate.getTime() ?
+                                    <Link href={`/dash/news/${news.id}${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>
+                                        <time dateTime={updatedAtDate.toISOString()}>
+                                            {updatedAtDate.toLocaleDateString('ja-JP', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                            })}
+                                        </time>
+                                        &nbsp;更新
+                                    </Link>
+                                    : <Link href={`/dash/news/${news.id}${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>
+                                        <time dateTime={publishedAtDate.toISOString()}>
+                                            {publishedAtDate.toLocaleDateString('ja-JP', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric',
+                                                hour: 'numeric',
+                                                minute: 'numeric',
+                                            })}
+                                        </time>
+                                    </Link>
+                                }
                             </div>
                             <div className={styles.News_Title}>
-                                <Link href={`/dash/news/${news.id}`}>
+                                <Link href={`/dash/news/${news.id}${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>
                                     {news.title}
                                 </Link>
                             </div>

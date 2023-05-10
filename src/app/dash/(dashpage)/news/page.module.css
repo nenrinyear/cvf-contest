@@ -40,9 +40,9 @@
 }
 .News_Date {
     width: 30%;
+    min-width: fit-content;
     font-size: 1rem;
     color: #666;
-
 }
 .News_Title {
     width: 70%;
@@ -51,7 +51,6 @@
     text-align: left;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: wrap;
 }
 @media (max-width: 900px) {
     .News {
