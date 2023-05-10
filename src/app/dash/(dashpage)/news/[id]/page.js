@@ -32,6 +32,7 @@ export default async function NewsDetail({ id, searchParams }) {
     
     return (
         <PageViewAnimate>
+            {process.env.NODE_ENV !== 'production' ? <p>{ process.env.NODE_ENV }</p> : ''}
             <div>
                 <p className={styles.Back}>
                     <Link href={`/dash/news${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>← ニュース一覧へ</Link>
