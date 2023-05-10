@@ -16,7 +16,7 @@ export default async function DashNews({ searchParams }) {
     
     return (
         <PageTransition>
-            {process.env.DEPLOY_ENV !== 'production' ? <p>{ process.env.DEPLOY_ENV }</p> : ''}
+            {process.env.DEPLOY_ENV !== 'production' ? <><p>{process.env.DEPLOY_ENV}</p><pre>{JSON.stringify(searchParams)}</pre></> : ''}
             <div className={styles.Title}>
                 <p className={`${styles.Title_text}`}>
                     ニュース

@@ -1,7 +1,4 @@
-import PageTransition from "@/components/PageTransition";
-
 import styles from './Awards.module.css';
-import Link from "next/link";
 
 import { Jost } from 'next/font/google';
 import PageViewAnimate from "@/components/PageViewAnimate";

@@ -1,22 +1,15 @@
-"use server";
 import styles from './Schedule.module.css';
 import PageViewAnimate from '@/components/PageViewAnimate';
 
 import Link from 'next/link';
 
-import { Jost, Zen_Maru_Gothic } from 'next/font/google';
+import { Jost } from 'next/font/google';
 const jost = Jost({
     subsets: ['latin'],
     style: ['normal', 'italic'],
     weights: [200, 300, 500],
     display: 'swap',
 });
-const zen_maru_gothic_400 = Zen_Maru_Gothic({
-    subsets: ['latin'],
-    style: ['normal'],
-    weight: "400",
-    display: 'swap',
-})
 
 const TimelineData = [
     {
