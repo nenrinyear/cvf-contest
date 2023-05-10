@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default async function DashNews({ searchParams }) {
     let newsData, isDraft = false;
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.DEPLOY_ENV !== 'production') {
         newsData = await microcmsClient.get({ endpoint: 'news-dash', queries: { draftKey: searchParams['draftKey'] } });
         isDraft = true;
     } else {
@@ -16,7 +16,7 @@ export default async function DashNews({ searchParams }) {
     
     return (
         <PageTransition>
-            {process.env.NODE_ENV !== 'production' ? <p>{ process.env.NODE_ENV }</p> : ''}
+            {process.env.DEPLOY_ENV !== 'production' ? <p>{ process.env.DEPLOY_ENV }</p> : ''}
             <div className={styles.Title}>
                 <p className={`${styles.Title_text}`}>
                     ニュース
