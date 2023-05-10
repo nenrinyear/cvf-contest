@@ -38,7 +38,7 @@ export default async function DashNews({ searchParams }) {
                             <div className={styles.News_Date}>
                                 {publishedAtDate.getTime() < updatedAtDate.getTime() ?
                                     <Link href={`/dash/news/${news.id}${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>
-                                        <time dateTime={updatedAtDate.toISOString()}>
+                                        <time dateTime={news.updatedAt}>
                                             {updatedAtDate.toLocaleDateString('ja-JP', {
                                                 year: 'numeric',
                                                 month: 'long',
@@ -50,7 +50,7 @@ export default async function DashNews({ searchParams }) {
                                         &nbsp;更新
                                     </Link>
                                     : <Link href={`/dash/news/${news.id}${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>
-                                        <time dateTime={publishedAtDate.toISOString()}>
+                                        <time dateTime={news.publishedAt ?? news.createdAt}>
                                             {publishedAtDate.toLocaleDateString('ja-JP', {
                                                 year: 'numeric',
                                                 month: 'long',
