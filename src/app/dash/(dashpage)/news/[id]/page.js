@@ -7,10 +7,10 @@ export default async function NewsDetail({ id, searchParams }) {
     let newsData = {},
         isDraft = false;
     if (process.env.DEPLOY_ENV !== 'production') {
-        newsData = await microcmsClient.get({ endpoint: 'news-dash', queries: { q: id, draftKey: searchParams['draftKey'] } });
+        newsData = await microcmsClient.get({ endpoint: 'news-dash', contentId: id , queries: { draftKey: searchParams['draftKey'] } });
         isDraft = true;
     } else {
-        newsData = await microcmsClient.get({ endpoint: 'news-dash', queries: { q: id} });
+        newsData = await microcmsClient.get({ endpoint: 'news-dash', contentId: id });
     }
 
     if(newsData.contents.length < 1) {
