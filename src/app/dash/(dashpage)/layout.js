@@ -82,7 +82,7 @@ export default async function DashboardLayout({ children }) {
                                         アカウント設定
                                     </Link>
                                 </div>
-                                {session.user.userData.admin ? 
+                                {session.user.userData.admin === "1" ? 
                                     <>
                                         <hr />
                                         <div className={styles.Menu_Item}>

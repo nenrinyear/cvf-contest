@@ -3,9 +3,16 @@ import styles from './page.module.css';
 
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { redirect } from "next/navigation";
 
 export default async function AdminPage() {
     const session = await getServerSession(authOptions);
+
+    if (!session) {
+        redirect('/dash/login');
+    } else if (session.user.userData.admin !== "1") {
+        redirect('/dash');
+    }
 
     const userList = await fetch(`${process.env.CVF2023_MYAPI_HOST}/getUserList`, {
         method: "POST",
