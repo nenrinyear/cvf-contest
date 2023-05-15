@@ -1,26 +1,33 @@
 import Link from "next/link";
 import { microcmsClient } from "../microcms-client";
 import styles from './NewsDetail.module.css';
-import PageViewAnimate from "@/components/PageViewAnimate";
 
-export default async function NewsDetail({ id, searchParams }) {
-    let newsData = {},
+export default async function NewsDetail({ params: { id }, searchParams }) {
+    let news = {},
         isDraft = false;
-    if (process.env.DEPLOY_ENV !== 'production') {
-        newsData = await microcmsClient.get({ endpoint: 'news-dash', contentId: id , queries: { draftKey: searchParams['draftKey'] } });
-        isDraft = true;
-    } else {
-        newsData = await microcmsClient.get({ endpoint: 'news-dash', contentId: id });
-    }
-
-    if(newsData.contents.length < 1) {
+    try {
+        if (process.env.DEPLOY_ENV !== 'production') {
+            news = await microcmsClient.get({ endpoint: 'news-dash', contentId: id , queries: { draftKey: searchParams['draftKey'] } });
+            isDraft = true;
+        } else {
+            news = await microcmsClient.get({ endpoint: 'news-dash', contentId: id });
+        }
+    } catch (e) {
+        console.error(e);
         return (
             <div>
-                <p>404</p>
+                <div>
+                    <p className={styles.Back}>
+                        <Link href={`/dash/news${isDraft? '?draftKey='+searchParams['draftKey'] : ''}`}>← ニュース一覧へ</Link>
+                    </p>
+                </div>
+                <h1 className={styles.Title}>404 Not Found</h1>
+                <p>
+                    お探しのページは見つかりませんでした。
+                </p>
             </div>
         )
     }
-    const news = newsData.contents[0];
 
     let publishedAtDate = new Date(news.publishedAt?? news.createdAt),
         updatedAtDate = new Date(news.updatedAt);
@@ -30,7 +37,7 @@ export default async function NewsDetail({ id, searchParams }) {
     }
     
     return (
-        <PageViewAnimate>
+        <>
             {process.env.DEPLOY_ENV !== 'production' ? <><p>{process.env.DEPLOY_ENV}</p><pre>{JSON.stringify(searchParams)}</pre></> : ''}
             <div>
                 <p className={styles.Back}>
@@ -64,6 +71,6 @@ export default async function NewsDetail({ id, searchParams }) {
                 : ''}
             </div>
             <div dangerouslySetInnerHTML={{ __html: news.content }} className={styles.content} />
-        </PageViewAnimate>
+        </>
     )
 }
