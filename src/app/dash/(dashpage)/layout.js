@@ -82,6 +82,19 @@ export default async function DashboardLayout({ children }) {
                                         アカウント設定
                                     </Link>
                                 </div>
+                                {session.user.userData.admin ? 
+                                    <>
+                                        <hr />
+                                        <div className={styles.Menu_Item}>
+                                            <Link
+                                                className={styles.Menu_Item_Text}
+                                                href="/dash/admin"
+                                            >
+                                                管理者ページ
+                                            </Link>
+                                        </div>
+                                    </>
+                                : ''}
                             </div>
                         </div>
                     </div>
