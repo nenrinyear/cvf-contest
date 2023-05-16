@@ -157,9 +157,6 @@
         align-content: center;
         flex-wrap: wrap;
     }
-    .Menu .Menu_Item {
-        height: 24px;
-    }
     .LeftFixedMenu_Container_Menu_Title_Text {
         text-align: left;
     }
