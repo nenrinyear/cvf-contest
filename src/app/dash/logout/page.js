@@ -12,7 +12,6 @@ export default function Logout() {
         redirect('/dash/login');
     }
     if (status === 'authenticated') {
-        console.log(session, status)
         signOut();
     }
 }

@@ -27,7 +27,6 @@ export default async function AdminPage() {
     }).then((res) => {
         return res.json();
     });
-    console.log(userList)
 
     return (
         <PageTransition>
